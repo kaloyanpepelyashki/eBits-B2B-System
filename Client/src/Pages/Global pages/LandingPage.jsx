@@ -2,8 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function LandingPage({ productsList }) {
-  const subject = "cool subject";
-  const body = "This is a email sent with js";
   const [emailAddress, setEmailAddress] = useState("");
   const products = productsList;
 
