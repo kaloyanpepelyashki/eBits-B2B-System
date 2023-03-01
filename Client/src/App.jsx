@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import "./App.css";
+
+//Importing Components
 import HeaderBar from "./Components/Global Components/HeaderBar";
+
+//Importing page components
 import ContactInfoPage from "./Pages/Global pages/ContactsPage";
 import LandingPage from "./Pages/Global pages/LandingPage";
 import TypeOfOrderPage from "./Pages/Global pages/TypeOfOrderPage";
+import ChoiceBuyOrCreate from "./Pages/Kit route/BuyOrCreate";
 import ProductSelectionPageSP from "./Pages/Seprate Products Route/ProductSelctionPage(SP)";
 
 function App() {
@@ -32,11 +37,16 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage productsList={productsList} />} />
         <Route path="/orderType" element={<TypeOfOrderPage />} />
+
+        {/* <=== ! | Separate products routes | ! ===>  */}
         <Route
           path="/productSelectionPageSP"
-          element={<ProductSelectionPageSP />}
+          element={<ProductSelectionPageSP productsList={productsList} />}
         />
         <Route path="/contactInfoPage" element={<ContactInfoPage />} />
+
+        {/* <=== ! | Kit routes | ! ===>  */}
+        <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

@@ -8,8 +8,9 @@ module.exports = {
       "txt-grey-color": "#959595",
       "txt-black-color": "#000000",
     },
-    fonts: {
-      "page-text-big": "38pt",
+    fontSize: {
+      TextBig: "28pt",
+      GlobalBtnsTxt: "23pt",
     },
   },
   plugins: [],
