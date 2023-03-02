@@ -70,6 +70,7 @@ img {
 
 
   /* <--- --- | HEADER-BAR COMPONENT STYLING | --- ---> */
+
   .buttons-holder {
     width: 100%;
   }
@@ -87,14 +88,36 @@ img {
   }
 
 
-    /* <--- --- | HEADER-BAR COMPONENT STYLING | --- ---> */
+    /* <--- --- | PAGE LEFT SIDE SEARCH COMPONENT STYLING | --- ---> */
+
   .line {
     width: 500px;
     height: 2px;
     background-color: grey;
   }
 
+    .line-2 {
+      margin-top: 180px;
+    }
 
+    .page-left-side-search-bar {
+      margin: 10px 0px;
+    }
+
+
+
+
+        /* <--- --- | SEARCH BAR PRODUCT DISPLAY COMPONENT STYLING | --- ---> */
+
+      .product-search-bar-outter-wrapper {
+        height: 20px;
+        width: 590px;
+        margin-bottom: 10px;
+      }
+      .product-search-bar-outter-wrapper:hover {
+        cursor: pointer;
+        background-color: #d4d3d3;
+      }
 
   /***  <==== === ! | LANDING PAGE | ! === ====>  ***/
 

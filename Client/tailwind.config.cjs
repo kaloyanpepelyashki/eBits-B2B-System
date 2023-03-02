@@ -7,10 +7,12 @@ module.exports = {
       "primary-color": "#551C50",
       "txt-grey-color": "#959595",
       "txt-black-color": "#000000",
+      "txt-white-color": "#FFFFFF",
     },
     fontSize: {
       TextBig: "28pt",
       GlobalBtnsTxt: "23pt",
+      HeadingSmall: "16pt",
     },
   },
   plugins: [],

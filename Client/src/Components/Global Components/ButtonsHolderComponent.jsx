@@ -17,7 +17,7 @@ export default function ButtonsHolder({ nextDestination }) {
             &lt; Back
           </button>
           <button
-            className="btn-holder-next bg-primary-color text-GlobalBtnsTxt"
+            className="btn-holder-next bg-primary-color text-GlobalBtnsTxt text-txt-white-color"
             onClick={handleTransfer}
           >
             Next
