@@ -1,8 +1,9 @@
-import { createContext } from "react";
+//Importing React hooks
+import { createContext, useState } from "react";
 
 export const ShoppingCartFunc = createContext();
 
-export const ShoppingCartProvider = ({ children }) => {
+export const ShoppingCartProvider = (props) => {
   const [cartProducts, setCartProducts] = useState([]);
 
   const funcs = {
@@ -78,7 +79,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
   return (
     <ShoppingCartFunc.Provider value={{ cartProducts, funcs, setCartProducts }}>
-      {children}
+      {props.children}
     </ShoppingCartFunc.Provider>
   );
 };

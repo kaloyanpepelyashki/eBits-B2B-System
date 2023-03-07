@@ -1,3 +1,4 @@
+//Importing React-router elements and components
 import { useNavigate } from "react-router";
 
 export default function ButtonsHolder({ nextDestination }) {

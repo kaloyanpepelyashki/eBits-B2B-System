@@ -1,4 +1,7 @@
+//Importing React hooks
 import { useState } from "react";
+
+//Importing components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
 export default function ChoiceBuyOrCreate() {
@@ -7,7 +10,7 @@ export default function ChoiceBuyOrCreate() {
     routeChoice2 == 1
       ? "/productSelectionPageKb"
       : routeChoice2 == 2
-      ? "/productSelectionPageSP"
+      ? "/productSelectionPageKC"
       : "";
   return (
     <>

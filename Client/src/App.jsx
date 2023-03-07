@@ -1,5 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+//Importing React hooks
+import { useEffect, useState } from "react";
+
+//Importing React-router elements and components
 import { Navigate, Route, Routes } from "react-router";
+
+//Importing styling sheet
 import "./App.css";
 
 //Importing Components
@@ -11,9 +16,13 @@ import LandingPage from "./Pages/Global pages/LandingPage";
 import TypeOfOrderPage from "./Pages/Global pages/TypeOfOrderPage";
 import ProductSelectionPageKB from "./Pages/Kit route/Buy a Kit/ProductSelectionPage(K)";
 import ChoiceBuyOrCreate from "./Pages/Kit route/BuyOrCreate";
+import ProductSelectionPageKC from "./Pages/Kit route/Compose a Kit/ProductSelectionPage";
 import ProductSelectionPageSP from "./Pages/Seprate Products Route/ProductSelctionPage(SP)";
 
 function App() {
+  //Fetching the products list from the server
+  ////
+  //
   const [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
@@ -31,6 +40,9 @@ function App() {
     fetchData();
   }, []);
 
+  //
+  ////
+
   console.log(productsList);
   return (
     <div className="App">
@@ -39,18 +51,22 @@ function App() {
         <Route path="/" element={<LandingPage productsList={productsList} />} />
         <Route path="/orderType" element={<TypeOfOrderPage />} />
 
-        {/* <=== ! | Separate products routes | ! ===>  */}
+        {/* <==== ! | Separate products routes | ! ====>  */}
         <Route
           path="/productSelectionPageSP"
           element={<ProductSelectionPageSP productsList={productsList} />}
         />
         <Route path="/contactInfoPage" element={<ContactInfoPage />} />
 
-        {/* <=== ! | Kit routes | ! ===>  */}
+        {/* <==== ! | Kit routes | ! ====>  */}
         <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
         <Route
           path="/productSelectionPageKb"
           element={<ProductSelectionPageKB productsList={productsList} />}
+        />
+        <Route
+          path="/productSelectionPageKC"
+          element={<ProductSelectionPageKC productsList={productsList} />}
         />
 
         <Route path="*" element={<Navigate to="/" />} />
