@@ -3,8 +3,11 @@ import ProductSearchBar from "../Context Components/ProductDisplaySearchBar";
 
 export default function PageLeftSide(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");
+
+  //Importing data and functions from component's props
   const productList = props.productsList;
-  const addProduct = props.addProduct;
+
+  const { addProduct, removeProduct, reduceProductAmount } = props;
 
   console.log(productList);
   let filterFunc = [];
@@ -45,14 +48,34 @@ export default function PageLeftSide(props) {
         </div>
         <div className="page-left-side-bottom-section">
           <h2 className="text-HeadingSmall">Your products :</h2>
-          {props.cartProducts.map((product) => (
-            <div style={{ display: "flex" }}>
-              <h2>{product.productName}</h2>
-              <h2 style={{ marginLeft: "10px" }}>
-                <b>{product.qty}</b>
-              </h2>
-            </div>
-          ))}
+          {props.cartProducts.map((product) =>
+            product.qty > 0 ? (
+              <div key={product.ProductIndex} style={{ display: "flex" }}>
+                <h2>{product.productName}</h2>
+                <h2 style={{ marginLeft: "10px" }}>
+                  <b>{product.qty}</b>
+                </h2>
+                <button
+                  style={{ marginLeft: "10px", border: "1px solid black" }}
+                  onClick={() => {
+                    reduceProductAmount(product);
+                  }}
+                >
+                  Reduce
+                </button>
+                <button
+                  style={{ marginLeft: "10px", border: "1px solid black" }}
+                  onClick={() => {
+                    removeProduct(product);
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            ) : (
+              ""
+            )
+          )}
         </div>
       </div>
     </>

@@ -1,11 +1,12 @@
 import { useState } from "react";
+import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 import PageLeftSide from "../../Components/Global Components/PageLeftSide";
 
 export default function ProductSelectionPageSP({ productsList }) {
   /////
   ///
 
-  //Add to cart functionality feature
+  //<== SHOPING CART FUNCTIONALITY FEATURE
 
   const [cartProducts, setCartProducts] = useState([]);
 
@@ -33,17 +34,67 @@ export default function ProductSelectionPageSP({ productsList }) {
     }
   };
 
+  //<== REDUCE AMOUNT FROM CARD CART FUNCTIONALITY FEATURE
+
+  const reduceProductAmount = (product) => {
+    const doesExist = cartProducts.find(
+      (item) => item.ProductIndex === product.ProductIndex
+    );
+    if (doesExist.qty === 1) {
+      setCartProducts(
+        cartProducts.filter(
+          (item) => item.ProductIndex !== product.ProductIndex
+        )
+      );
+    } else {
+      setCartProducts(
+        cartProducts.map((item) =>
+          item.ProductIndex === product.ProductIndex
+            ? { ...doesExist, qty: doesExist.qty - 1 }
+            : item
+        )
+      );
+    }
+  };
+
+  //<== REMOVE FROM CART FUNCTIONALITY FEATURE
+
+  const removeProduct = (product) => {
+    const doesExist = cartProducts.find(
+      (item) => item.ProductIndex === product.ProductIndex
+    );
+    if (doesExist.qty === 1) {
+      setCartProducts(
+        cartProducts.filter(
+          (item) => item.ProductIndex !== product.ProductIndex
+        )
+      );
+    } else {
+      setCartProducts(
+        cartProducts.map((item) =>
+          item.ProductIndex === product.ProductIndex
+            ? { ...doesExist, qty: (doesExist.qty = 0) }
+            : item
+        )
+      );
+    }
+  };
+
   ////
   ////
+
   return (
     <>
-      <main className="product-selectionSP-page-content-wrapper page-main-section">
-        <div className="product-selectionSP-page-inner-content">
+      <main className="product-selectionSP-page-content-wrapper product-selection-page-content-wrapper page-main-section">
+        <div className="product-selectionSP-page-inner-content product-selection-page-inner-content">
           <PageLeftSide
             addProduct={addProduct}
+            removeProduct={removeProduct}
+            reduceProductAmount={reduceProductAmount}
             productsList={productsList}
             cartProducts={cartProducts}
           ></PageLeftSide>
+          <ButtonsHolder />
         </div>
       </main>
     </>
