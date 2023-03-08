@@ -25,7 +25,6 @@ function App() {
   ////
   //
   const [productsList, setProductsList] = useState([]);
-  const [productsVarList, setProductsVarList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,59 +39,6 @@ function App() {
         });
     };
     fetchData();
-
-    // const sendPostRequest = () => {
-    //   productsList.forEach((element) => {
-    //     const getVariations = async () => {
-    //       await fetch("http://65.109.137.46:5000/apivar", {
-    //         method: "POST",
-    //         headers: {
-    //           Accept: "application/json",
-    //           "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //           ProductIndex: element.ProductIndex,
-    //         }),
-    //       })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //           if (data.length > 0) {
-    //             setProductsVarList((prevList) => [...prevList, data]);
-    //             console.log(data);
-    //           }
-    //         })
-    //         .catch((err) => {
-    //           console.log(err);
-    //         });
-    //     };
-    //     getVariations();
-    //   });
-    // };
-    // sendPostRequest();
-
-    // // const sendPostRequest = () => {
-    // //   const promises = productsList.map((element) => {
-    // //     return fetch("http://65.109.137.46:5000/apivar", {
-    // //       method: "POST",
-    // //       headers: {
-    // //         Accept: "application/json",
-    // //         "Content-Type": "application/json",
-    // //       },
-    // //       body: JSON.stringify({
-    // //         ProductIndex: element.ProductIndex,
-    // //       }),
-    // //     }).then((response) => response.json());
-    // //   });
-    // //   Promise.all(promises).then((data) => {
-    // //     if (data.length > 0) {
-    // //       setProductsVarList((prevList) => [...prevList, data]);
-    // //       console.log(data);
-    // //     }
-    // //   });
-    // // };
-    // // sendPostRequest();
-
-    // console.log(productsVarList);
   }, []);
 
   //
@@ -109,12 +55,7 @@ function App() {
         {/* <==== ! | Separate products routes | ! ====>  */}
         <Route
           path="/productSelectionPageSP"
-          element={
-            <ProductSelectionPageSP
-              productsVarList={productsVarList}
-              productsList={productsList}
-            />
-          }
+          element={<ProductSelectionPageSP productsList={productsList} />}
         />
         <Route path="/contactInfoPage" element={<ContactInfoPage />} />
 
@@ -122,21 +63,11 @@ function App() {
         <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
         <Route
           path="/productSelectionPageKb"
-          element={
-            <ProductSelectionPageKB
-              productsVarList={productsVarList}
-              productsList={productsList}
-            />
-          }
+          element={<ProductSelectionPageKB productsList={productsList} />}
         />
         <Route
           path="/productSelectionPageKC"
-          element={
-            <ProductSelectionPageKC
-              productsVarList={productsVarList}
-              productsList={productsList}
-            />
-          }
+          element={<ProductSelectionPageKC productsList={productsList} />}
         />
 
         <Route path="*" element={<Navigate to="/" />} />

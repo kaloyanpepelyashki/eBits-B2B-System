@@ -3,8 +3,14 @@ import { useState, useEffect } from "react";
 export default function ProductSearchBar({ product, addProduct }) {
   const [productVariations, setProductVariations] = useState([]);
 
+  //Fetching the variations from the server
+  //////
+  ////
+  //
+
   useEffect(() => {
     const sendPostRequest = async () => {
+      //Sending a POST request to the server with the product index
       await fetch("http://65.109.137.46:5000/apivar", {
         method: "POST",
         headers: {
@@ -15,6 +21,7 @@ export default function ProductSearchBar({ product, addProduct }) {
           ProductIndex: product.ProductIndex,
         }),
       })
+        //The server retreives a list of variations that match the product index
         .then((response) => response.json())
         .then((data) => {
           if (data.length > 0) {
@@ -29,7 +36,10 @@ export default function ProductSearchBar({ product, addProduct }) {
     sendPostRequest();
   }, []);
 
-  console.log(productVariations);
+  //
+  ////
+  //////
+
   return (
     <>
       <div
