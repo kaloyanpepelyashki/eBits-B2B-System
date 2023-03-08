@@ -20,10 +20,12 @@ import ProductSelectionPageKC from "./Pages/Kit route/Compose a Kit/ProductSelec
 import ProductSelectionPageSP from "./Pages/Seprate Products Route/ProductSelctionPage(SP)";
 
 function App() {
-  //Fetching the products list from the server
+  //Fetching data from the server
+  //////
   ////
   //
   const [productsList, setProductsList] = useState([]);
+  const [productsVarList, setProductsVarList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,11 +40,64 @@ function App() {
         });
     };
     fetchData();
+
+    const sendPostRequest = () => {
+      productsList.forEach((element) => {
+        const getVariations = async () => {
+          await fetch("http://65.109.137.46:5000/apivar", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ProductIndex: element.ProductIndex,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.length > 0) {
+                setProductsVarList((prevList) => [...prevList, data]);
+                console.log(data);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        };
+        getVariations();
+      });
+    };
+    sendPostRequest();
+
+    // const sendPostRequest = () => {
+    //   const promises = productsList.map((element) => {
+    //     return fetch("http://65.109.137.46:5000/apivar", {
+    //       method: "POST",
+    //       headers: {
+    //         Accept: "application/json",
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         ProductIndex: element.ProductIndex,
+    //       }),
+    //     }).then((response) => response.json());
+    //   });
+    //   Promise.all(promises).then((data) => {
+    //     if (data.length > 0) {
+    //       setProductsVarList((prevList) => [...prevList, data]);
+    //       console.log(data);
+    //     }
+    //   });
+    // };
+    // sendPostRequest();
+
+    console.log(productsVarList.length);
   }, []);
 
   //
   ////
-
+  //////
   console.log(productsList);
   return (
     <div className="App">
@@ -54,7 +109,12 @@ function App() {
         {/* <==== ! | Separate products routes | ! ====>  */}
         <Route
           path="/productSelectionPageSP"
-          element={<ProductSelectionPageSP productsList={productsList} />}
+          element={
+            <ProductSelectionPageSP
+              productsVarList={productsVarList}
+              productsList={productsList}
+            />
+          }
         />
         <Route path="/contactInfoPage" element={<ContactInfoPage />} />
 
@@ -62,11 +122,21 @@ function App() {
         <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
         <Route
           path="/productSelectionPageKb"
-          element={<ProductSelectionPageKB productsList={productsList} />}
+          element={
+            <ProductSelectionPageKB
+              productsVarList={productsVarList}
+              productsList={productsList}
+            />
+          }
         />
         <Route
           path="/productSelectionPageKC"
-          element={<ProductSelectionPageKC productsList={productsList} />}
+          element={
+            <ProductSelectionPageKC
+              productsVarList={productsVarList}
+              productsList={productsList}
+            />
+          }
         />
 
         <Route path="*" element={<Navigate to="/" />} />
