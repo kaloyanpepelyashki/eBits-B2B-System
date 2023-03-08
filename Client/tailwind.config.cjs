@@ -13,6 +13,8 @@ module.exports = {
       TextBig: "28pt",
       GlobalBtnsTxt: "23pt",
       HeadingSmall: "16pt",
+      ProductTitleSmall: "9pt",
+      VariationTitle: "7pt",
     },
   },
   plugins: [],

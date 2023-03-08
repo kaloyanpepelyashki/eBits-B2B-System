@@ -41,58 +41,58 @@ function App() {
     };
     fetchData();
 
-    const sendPostRequest = () => {
-      productsList.forEach((element) => {
-        const getVariations = async () => {
-          await fetch("http://65.109.137.46:5000/apivar", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              ProductIndex: element.ProductIndex,
-            }),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.length > 0) {
-                setProductsVarList((prevList) => [...prevList, data]);
-                console.log(data);
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        };
-        getVariations();
-      });
-    };
-    sendPostRequest();
-
     // const sendPostRequest = () => {
-    //   const promises = productsList.map((element) => {
-    //     return fetch("http://65.109.137.46:5000/apivar", {
-    //       method: "POST",
-    //       headers: {
-    //         Accept: "application/json",
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         ProductIndex: element.ProductIndex,
-    //       }),
-    //     }).then((response) => response.json());
-    //   });
-    //   Promise.all(promises).then((data) => {
-    //     if (data.length > 0) {
-    //       setProductsVarList((prevList) => [...prevList, data]);
-    //       console.log(data);
-    //     }
+    //   productsList.forEach((element) => {
+    //     const getVariations = async () => {
+    //       await fetch("http://65.109.137.46:5000/apivar", {
+    //         method: "POST",
+    //         headers: {
+    //           Accept: "application/json",
+    //           "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //           ProductIndex: element.ProductIndex,
+    //         }),
+    //       })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //           if (data.length > 0) {
+    //             setProductsVarList((prevList) => [...prevList, data]);
+    //             console.log(data);
+    //           }
+    //         })
+    //         .catch((err) => {
+    //           console.log(err);
+    //         });
+    //     };
+    //     getVariations();
     //   });
     // };
     // sendPostRequest();
 
-    console.log(productsVarList.length);
+    // // const sendPostRequest = () => {
+    // //   const promises = productsList.map((element) => {
+    // //     return fetch("http://65.109.137.46:5000/apivar", {
+    // //       method: "POST",
+    // //       headers: {
+    // //         Accept: "application/json",
+    // //         "Content-Type": "application/json",
+    // //       },
+    // //       body: JSON.stringify({
+    // //         ProductIndex: element.ProductIndex,
+    // //       }),
+    // //     }).then((response) => response.json());
+    // //   });
+    // //   Promise.all(promises).then((data) => {
+    // //     if (data.length > 0) {
+    // //       setProductsVarList((prevList) => [...prevList, data]);
+    // //       console.log(data);
+    // //     }
+    // //   });
+    // // };
+    // // sendPostRequest();
+
+    // console.log(productsVarList);
   }, []);
 
   //
