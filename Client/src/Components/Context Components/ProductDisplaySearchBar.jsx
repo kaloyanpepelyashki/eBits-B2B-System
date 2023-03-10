@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function ProductSearchBar({ product, addProduct }) {
   const [productVariations, setProductVariations] = useState([]);
+  const [productWithVar, setProductWithVar] = useState({ product });
 
   //Fetching the variations from the server
   //////
@@ -40,19 +41,39 @@ export default function ProductSearchBar({ product, addProduct }) {
   ////
   //////
 
+  const handleVariationChoice = (e) => {
+    let value = {};
+    value = {
+      VariationName: e.target.value,
+    };
+    setProductWithVar((productWithVar) => ({
+      ...productWithVar,
+      ...value,
+    }));
+  };
+  console.log(productWithVar);
+
   return (
     <>
       <div
         className="product-search-bar-outter-wrapper"
         onClick={() => {
-          addProduct(product);
+          addProduct(productWithVar);
         }}
       >
-        <select className="product-search-bar-select text-VariationTitle">
+        <select
+          onChange={(e) => {
+            handleVariationChoice(e);
+          }}
+          className="product-search-bar-select text-VariationTitle"
+        >
+          <option value={product.ProductName}>{product.ProductName}</option>
           {productVariations.length !== 0
             ? productVariations[0].map((variation) =>
                 variation.ProductIndex == product.ProductIndex ? (
-                  <option>{variation.ProductName}</option>
+                  <option value={variation.VariationName}>
+                    {variation.ProductName}
+                  </option>
                 ) : (
                   ""
                 )

@@ -10,6 +10,7 @@ export default function PageLeftSide(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");
 
   //Getting the context data from the context component
+  //Destructuring the object, for a best practice use
   const {
     cartProducts,
     funcs: { addProduct, reduceProductAmount, removeProduct },
@@ -67,9 +68,11 @@ export default function PageLeftSide(props) {
         <div className="page-left-side-bottom-section">
           <h2 className="text-HeadingSmall">Your products :</h2>
           {cartProducts.map((product) =>
-            product.qty > 0 ? (
+            product.qty > 0 && product.varQty > 0 ? (
               <div key={product.ProductIndex} style={{ display: "flex" }}>
-                <h2>{product.productName}</h2>
+                <h2>
+                  {product.productName} / {product.VariationName}
+                </h2>
                 <h2 style={{ marginLeft: "10px" }}>
                   <b>{product.qty}</b>
                 </h2>

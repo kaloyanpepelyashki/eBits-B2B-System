@@ -10,14 +10,21 @@ export const ShoppingCartProvider = (props) => {
     addProduct: (product) => {
       //Return true if there is a product with an index in the cart, that is equal to the product index you are adding to the cart now
       const doesExist = cartProducts.find(
-        (item) => item.ProductIndex === product.ProductIndex
+        (item) =>
+          item.product.ProductIndex === product.product.ProductIndex &&
+          item.VariationName === product.VariationName
       );
       //If doesExist is true, it adds one more to the qty (quantity)  of the product
       if (doesExist) {
         setCartProducts(
           cartProducts.map((item) =>
-            item.ProductIndex === product.ProductIndex
-              ? { ...doesExist, qty: doesExist.qty + 1 }
+            item.product.ProductIndex === product.product.ProductIndex &&
+            item.VariationName === product.VariationName
+              ? {
+                  ...doesExist,
+                  qty: doesExist.qty + 1,
+                  varQty: doesExist.varQty + 1,
+                }
               : item
           )
         );
@@ -25,7 +32,13 @@ export const ShoppingCartProvider = (props) => {
       } else {
         setCartProducts([
           ...cartProducts,
-          { ...product, qty: 1, productName: product.ProductName },
+          {
+            ...product,
+            qty: 1,
+            varQty: 1,
+            productName: product.product.ProductName,
+            VariationName: product.VariationName,
+          },
         ]);
       }
     },
@@ -34,19 +47,28 @@ export const ShoppingCartProvider = (props) => {
 
     reduceProductAmount: (product) => {
       const doesExist = cartProducts.find(
-        (item) => item.ProductIndex === product.ProductIndex
+        (item) =>
+          item.product.ProductIndex === product.product.ProductIndex &&
+          item.VariationName === product.VariationName
       );
-      if (doesExist.qty === 1) {
+      if (doesExist.qty === 1 && doesExist.varQty === 1) {
         setCartProducts(
           cartProducts.filter(
-            (item) => item.ProductIndex !== product.ProductIndex
+            (item) =>
+              item.product.ProductIndex !== product.product.ProductIndex &&
+              item.VariationName !== product.VariationName
           )
         );
       } else {
         setCartProducts(
           cartProducts.map((item) =>
-            item.ProductIndex === product.ProductIndex
-              ? { ...doesExist, qty: doesExist.qty - 1 }
+            item.product.ProductIndex === product.product.ProductIndex &&
+            item.VariationName === product.VariationName
+              ? {
+                  ...doesExist,
+                  qty: doesExist.qty - 1,
+                  varQty: doesExist.varQty - 1,
+                }
               : item
           )
         );
@@ -57,25 +79,35 @@ export const ShoppingCartProvider = (props) => {
 
     removeProduct: (product) => {
       const doesExist = cartProducts.find(
-        (item) => item.ProductIndex === product.ProductIndex
+        (item) =>
+          item.product.ProductIndex === product.product.ProductIndex &&
+          item.VariationName === product.VariationName
       );
       if (doesExist.qty === 1) {
         setCartProducts(
           cartProducts.filter(
-            (item) => item.ProductIndex !== product.ProductIndex
+            (item) =>
+              item.product.ProductIndex !== product.product.ProductIndex &&
+              item.VariationName !== product.VariationName
           )
         );
       } else {
         setCartProducts(
           cartProducts.map((item) =>
-            item.ProductIndex === product.ProductIndex
-              ? { ...doesExist, qty: (doesExist.qty = 0) }
+            item.product.ProductIndex === product.product.ProductIndex &&
+            item.VariationName === product.VariationName
+              ? {
+                  ...doesExist,
+                  qty: (doesExist.qty = 0),
+                  varQty: (doesExist.varQty = 0),
+                }
               : item
           )
         );
       }
     },
   };
+  console.log(cartProducts);
 
   return (
     <ShoppingCartFunc.Provider value={{ cartProducts, funcs, setCartProducts }}>
