@@ -110,14 +110,14 @@ img {
         /* <--- --- | SEARCH BAR PRODUCT DISPLAY COMPONENT STYLING | --- ---> */
 
       .product-search-bar-outter-wrapper {
-        height: 30px;
+        height: 40px;
         width: 570px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
-        padding: 10px 0px 0px 10px;
+        padding: 5px 0px 0px 10px;
       }
       .product-search-bar-outter-wrapper:hover {
         cursor: pointer;
@@ -126,6 +126,18 @@ img {
 
       .product-search-bar-select {
         width: 72px;
+      }
+      .product-search-bar-clickable {
+        width: 90%;
+        height: 100%;
+        margin-left: 20px;
+      }
+      .product-search-bar-clickable:hover {
+        cursor: pointer;
+        background-color: red;
+      }
+      .product-search-bar-product-title {
+        text-align: right;
       }
 
   /***  <==== === ! | LANDING PAGE | ! === ====>  ***/

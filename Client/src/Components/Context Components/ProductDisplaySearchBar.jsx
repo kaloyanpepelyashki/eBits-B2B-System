@@ -41,10 +41,18 @@ export default function ProductSearchBar({ product, addProduct }) {
   ////
   //////
 
+  let value = {
+    VariationName: product.ProductName,
+    VariationID: 0,
+  };
   const handleVariationChoice = (e) => {
-    let value = {};
+    console.log(value.VariationName);
     value = {
       VariationName: e.target.value,
+      VariationID:
+        e.target.options[e.target.selectedIndex].getAttribute(
+          "data-variationid"
+        ),
     };
     setProductWithVar((productWithVar) => ({
       ...productWithVar,
@@ -53,25 +61,42 @@ export default function ProductSearchBar({ product, addProduct }) {
   };
   console.log(productWithVar);
 
+  //The function, checking if a variation is selected
+  const handleChoiceValidation = () => {
+    const filteredList =
+      productVariations.length !== 0
+        ? productVariations[0].filter(
+            (variation) => variation.ProductIndex == product.ProductIndex
+          )
+        : "";
+    console.log(filteredList);
+    if (!productWithVar.VariationName && filteredList.length > 0) {
+      window.alert("Please selct a variation");
+    } else {
+      addProduct(productWithVar);
+    }
+  };
   return (
     <>
-      <div
-        className="product-search-bar-outter-wrapper"
-        onClick={() => {
-          addProduct(productWithVar);
-        }}
-      >
+      <div className="product-search-bar-outter-wrapper">
         <select
           onChange={(e) => {
             handleVariationChoice(e);
           }}
           className="product-search-bar-select text-VariationTitle"
+          defaultValue={product.ProductName}
         >
-          <option value={product.ProductName}>{product.ProductName}</option>
+          <option data-variationid={0} value={product.ProductName}>
+            {product.ProductName}
+          </option>
           {productVariations.length !== 0
             ? productVariations[0].map((variation) =>
                 variation.ProductIndex == product.ProductIndex ? (
-                  <option value={variation.VariationName}>
+                  <option
+                    key={variation.VariationID}
+                    value={variation.ProductName}
+                    data-variationid={variation.VariationID}
+                  >
                     {variation.ProductName}
                   </option>
                 ) : (
@@ -80,7 +105,16 @@ export default function ProductSearchBar({ product, addProduct }) {
               )
             : ""}
         </select>
-        <h2 className="text-ProductTitleSmall">{product.ProductName}</h2>
+        <div
+          className="product-search-bar-clickable"
+          onClick={() => {
+            handleChoiceValidation();
+          }}
+        >
+          <h2 className="text-ProductTitleSmall product-search-bar-product-title ">
+            {product.ProductName}
+          </h2>
+        </div>
       </div>
     </>
   );

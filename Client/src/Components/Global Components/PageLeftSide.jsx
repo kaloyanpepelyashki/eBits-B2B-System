@@ -69,7 +69,10 @@ export default function PageLeftSide(props) {
           <h2 className="text-HeadingSmall">Your products :</h2>
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
-              <div key={product.ProductIndex} style={{ display: "flex" }}>
+              <div
+                key={product.productBaksetUnqKey}
+                style={{ display: "flex" }}
+              >
                 <h2>
                   {product.productName} / {product.VariationName}
                 </h2>
