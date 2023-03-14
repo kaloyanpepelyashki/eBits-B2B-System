@@ -13,7 +13,12 @@ export default function PageLeftSide(props) {
   //Destructuring the object, for a best practice use
   const {
     cartProducts,
-    funcs: { addProduct, reduceProductAmount, removeProduct },
+    funcs: {
+      addProduct,
+      reduceProductAmount,
+      increaseProductAmount,
+      removeProduct,
+    },
   } = useContext(ShoppingCartFunc);
 
   //Re-assigning the functions for the basked functionality features.
@@ -25,6 +30,9 @@ export default function PageLeftSide(props) {
   };
   const handleReduceProductAmount = (product) => {
     reduceProductAmount(product);
+  };
+  const handleIncreaseProductAmount = (product) => {
+    increaseProductAmount(product);
   };
 
   //Importing data and functions from component's props
@@ -76,16 +84,34 @@ export default function PageLeftSide(props) {
                 <h2>
                   {product.productName} / {product.VariationName}
                 </h2>
+                <button
+                  style={{
+                    width: "33px",
+                    marginLeft: "10px",
+                    border: "1px solid black",
+                    padding: "5px 10px",
+                  }}
+                  onClick={() => {
+                    handleIncreaseProductAmount(product);
+                  }}
+                >
+                  +
+                </button>
                 <h2 style={{ marginLeft: "10px" }}>
                   <b>{product.qty}</b>
                 </h2>
                 <button
-                  style={{ marginLeft: "10px", border: "1px solid black" }}
+                  style={{
+                    width: "33px",
+                    marginLeft: "10px",
+                    border: "1px solid black",
+                    padding: "5px 10px",
+                  }}
                   onClick={() => {
                     handleReduceProductAmount(product);
                   }}
                 >
-                  Reduce
+                  -
                 </button>
                 <button
                   style={{ marginLeft: "10px", border: "1px solid black" }}

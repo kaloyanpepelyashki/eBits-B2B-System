@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from "react-router";
 
 //Importing styling sheet
 import "./App.css";
+import { ShoppingCartProvider } from "./Components/Context Components/ShoppingCartFuncContext";
 
 //Importing Components
 import HeaderBar from "./Components/Global Components/HeaderBar";
@@ -48,30 +49,32 @@ function App() {
   return (
     <div className="App">
       <HeaderBar />
-      <Routes>
-        <Route path="/" element={<LandingPage productsList={productsList} />} />
-        <Route path="/orderType" element={<TypeOfOrderPage />} />
-
-        {/* <==== ! | Separate products routes | ! ====>  */}
-        <Route
-          path="/productSelectionPageSP"
-          element={<ProductSelectionPageSP productsList={productsList} />}
-        />
-        <Route path="/contactInfoPage" element={<ContactInfoPage />} />
-
-        {/* <==== ! | Kit routes | ! ====>  */}
-        <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
-        <Route
-          path="/productSelectionPageKb"
-          element={<ProductSelectionPageKB productsList={productsList} />}
-        />
-        <Route
-          path="/productSelectionPageKC"
-          element={<ProductSelectionPageKC productsList={productsList} />}
-        />
-
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <ShoppingCartProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={<LandingPage productsList={productsList} />}
+          />
+          <Route path="/orderType" element={<TypeOfOrderPage />} />
+          {/* <==== ! | Separate products routes | ! ====>  */}
+          <Route
+            path="/productSelectionPageSP"
+            element={<ProductSelectionPageSP productsList={productsList} />}
+          />
+          <Route path="/contactInfoPage" element={<ContactInfoPage />} />
+          {/* <==== ! | Kit routes | ! ====>  */}
+          <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
+          <Route
+            path="/productSelectionPageKb"
+            element={<ProductSelectionPageKB productsList={productsList} />}
+          />
+          <Route
+            path="/productSelectionPageKC"
+            element={<ProductSelectionPageKC productsList={productsList} />}
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </ShoppingCartProvider>
     </div>
   );
 }

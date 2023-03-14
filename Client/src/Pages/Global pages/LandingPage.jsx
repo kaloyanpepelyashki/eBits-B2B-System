@@ -1,4 +1,8 @@
 import { useState } from "react";
+
+//Importing React-router elements, components and hooks
+import { useNavigate } from "react-router";
+
 import axios from "axios";
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
@@ -50,7 +54,7 @@ export default function LandingPage({ productsList }) {
             Click to Send an Email
           </button>
         </div>
-        <ButtonsHolder nextDestination={"/orderType"} />
+        <ButtonsHolder transferFunc={"/orderType"} />
       </main>
     </>
   );

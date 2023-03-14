@@ -126,18 +126,22 @@ img {
 
       .product-search-bar-select {
         width: 72px;
+        height: 25px;
       }
       .product-search-bar-clickable {
         width: 90%;
         height: 100%;
-        margin-left: 20px;
+        margin-left: 20px;  
       }
       .product-search-bar-clickable:hover {
         cursor: pointer;
         background-color: red;
       }
       .product-search-bar-product-title {
-        text-align: right;
+        text-align: right;    
+        margin: auto;
+        padding: 10px;
+        
       }
 
   /***  <==== === ! | LANDING PAGE | ! === ====>  ***/

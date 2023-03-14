@@ -1,10 +1,14 @@
 //Importing React hooks
 import { createContext, useState } from "react";
 
+//Importing React-router elements, components and hooks
+import { useNavigate } from "react-router";
+
 export const ShoppingCartFunc = createContext();
 
 export const ShoppingCartProvider = (props) => {
   const [cartProducts, setCartProducts] = useState([]);
+  const navigate = useNavigate();
 
   const funcs = {
     addProduct: (product) => {
@@ -94,6 +98,31 @@ export const ShoppingCartProvider = (props) => {
         );
       }
     },
+    increaseProductAmount: (product) => {
+      const doesExist = cartProducts.find(
+        (item) =>
+          item.product.ProductName === product.product.ProductName &&
+          item.product.ProductIndex === product.product.ProductIndex &&
+          item.VariationName?.toLowerCase() ===
+            product.VariationName?.toLowerCase() &&
+          item.VariationID === product.VariationID
+      );
+      setCartProducts(
+        cartProducts.map((item) =>
+          item.product.ProductName === product.product.ProductName &&
+          item.product.ProductIndex === product.product.ProductIndex &&
+          item.VariationName?.toLowerCase() ===
+            product.VariationName?.toLowerCase() &&
+          item.VariationID === product.VariationID
+            ? {
+                ...doesExist,
+                qty: doesExist.qty + 1,
+                varQty: doesExist.varQty + 1,
+              }
+            : item
+        )
+      );
+    },
 
     //<== REMOVE FROM CART FUNCTIONALITY FEATURE
 
@@ -137,8 +166,16 @@ export const ShoppingCartProvider = (props) => {
         );
       }
     },
+
+    handlePageTransfer: (nextDestination) => {
+      const cartProductsJSON = JSON.stringify(cartProducts);
+      sessionStorage.setItem("cartProducts", cartProductsJSON);
+
+      () => {
+        navigate(nextDestination);
+      };
+    },
   };
-  console.log(cartProducts);
 
   return (
     <ShoppingCartFunc.Provider value={{ cartProducts, funcs, setCartProducts }}>

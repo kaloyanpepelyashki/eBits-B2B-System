@@ -1,11 +1,12 @@
-//Importing React-router elements and components
+//Importing React-router elements, components and hooks
 import { useNavigate } from "react-router";
 
-export default function ButtonsHolder({ nextDestination }) {
+export default function ButtonsHolder({ nextDestination, transferFunc }) {
   const navigate = useNavigate();
+  const NextDestination = nextDestination;
 
   const handleTransfer = () => {
-    navigate(nextDestination);
+    transferFunc(NextDestination);
   };
   return (
     <>
@@ -19,6 +20,7 @@ export default function ButtonsHolder({ nextDestination }) {
           </button>
           <button
             className="btn-holder-next bg-primary-color text-GlobalBtnsTxt text-txt-white-color"
+            type="button"
             onClick={handleTransfer}
           >
             Next
