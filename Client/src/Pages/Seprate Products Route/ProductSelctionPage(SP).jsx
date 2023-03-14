@@ -1,6 +1,5 @@
 //Importin React hooks
 import { useContext } from "react";
-
 import { useNavigate } from "react-router";
 
 //Importing components
@@ -15,26 +14,25 @@ export default function ProductSelectionPageSP({ productsList }) {
   const navigate = useNavigate();
   const {
     funcs: { handlePageTransfer },
+    globalPrices,
+    setGlobalPrices,
   } = useContext(ShoppingCartFunc);
 
-  const transferFunc = (nextDestination) => {
-    handlePageTransfer(nextDestination);
-    console.log("In the ProductSelectionPageSP");
-    console.log(handlePageTransfer);
+  const handleTransfer = () => {
+    handlePageTransfer();
+    navigate("/contactInfoPage");
   };
+
   return (
     <>
       <main className="product-selectionSP-page-content-wrapper product-selection-page-content-wrapper page-main-section">
         <div className="product-selectionSP-page-inner-content product-selection-page-inner-content">
-          {/* //Wrapping the PageLefSide in the ShoppingCartProvider context component, so I can pass the context functions */}
-          {/* <ShoppingCartProvider> */}
-          <PageLeftSide productsList={productsList}></PageLeftSide>
-          <ButtonsHolder
-            nextDestination={"/productSelectionPageSP"}
-            transferFunc={transferFunc}
-            navigate={navigate}
-          />
-          {/* </ShoppingCartProvider> */}
+          <PageLeftSide
+            globalPrices={globalPrices}
+            setGlobalPrices={setGlobalPrices}
+            productsList={productsList}
+          ></PageLeftSide>
+          <ButtonsHolder handleTransfer={handleTransfer} />
         </div>
       </main>
     </>

@@ -7,18 +7,25 @@ import axios from "axios";
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
 export default function LandingPage({ productsList }) {
+  const navigate = useNavigate();
   const [emailAddress, setEmailAddress] = useState("");
   const [emailValidation, setEmailValidation] = useState(true);
   const products = productsList;
 
   console.log(products);
 
+  //The function that sends the email information to the mailer
   function sendMail() {
+    //Validates the email
+    //Checks if the email contains "@"
     if (!emailAddress.includes("@")) {
+      //If the email doesn't contain "@" the validation is false
       setEmailValidation(false);
     } else {
+      setEmailValidation(true);
       console.log({ emailAddress });
       axios
+        //Makes a post request to the mailer server
         .post(
           "http://localhost:5000/mailer",
           { emailAddress: emailAddress },
@@ -30,10 +37,12 @@ export default function LandingPage({ productsList }) {
         .catch((err) => {
           console.log(err);
         });
-
-      setEmailValidation(true);
     }
   }
+
+  const handleTransfer = () => {
+    navigate("/orderType");
+  };
 
   return (
     <>
@@ -54,7 +63,7 @@ export default function LandingPage({ productsList }) {
             Click to Send an Email
           </button>
         </div>
-        <ButtonsHolder transferFunc={"/orderType"} />
+        <ButtonsHolder handleTransfer={handleTransfer} />
       </main>
     </>
   );

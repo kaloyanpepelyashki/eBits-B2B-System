@@ -27,7 +27,6 @@ export default function ProductSearchBar({ product, addProduct }) {
         .then((data) => {
           if (data.length > 0) {
             setProductVariations((prevList) => [...prevList, data]);
-            console.log(data);
           }
         })
         .catch((err) => {
@@ -41,12 +40,13 @@ export default function ProductSearchBar({ product, addProduct }) {
   ////
   //////
 
+  //Sets the variable that is to hold the variation information
   let value = {
     VariationName: product.ProductName,
     VariationID: 0,
   };
+  //The function that handles the variation choice
   const handleVariationChoice = (e) => {
-    console.log(value.VariationName);
     value = {
       VariationName: e.target.value,
       VariationID:
@@ -54,23 +54,20 @@ export default function ProductSearchBar({ product, addProduct }) {
           "data-variationid"
         ),
     };
+    //Sets the state of teh ProductWithVar variable
     setProductWithVar((productWithVar) => ({
       ...productWithVar,
       ...value,
     }));
   };
-  console.log(productWithVar);
 
   //The function, checking if a variation is selected
   const handleChoiceValidation = () => {
-    const filteredList =
-      productVariations.length !== 0
-        ? productVariations[0].filter(
-            (variation) => variation.ProductIndex == product.ProductIndex
-          )
-        : "";
-    console.log(filteredList);
-    if (!productWithVar.VariationName && filteredList.length > 0) {
+    //Checks if there is a variation
+    //Checks if there is a VariationName in the productWith var object
+    //And checks if there are any variations in the list of variations
+    if (!productWithVar.VariationName && productVariations.length > 0) {
+      //If there is no selected variation and there are variations in the list, it pushes a window alert
       window.alert("Please selct a variation");
     } else {
       addProduct(productWithVar);
@@ -90,19 +87,15 @@ export default function ProductSearchBar({ product, addProduct }) {
             {product.ProductName}
           </option>
           {productVariations.length !== 0
-            ? productVariations[0].map((variation) =>
-                variation.ProductIndex == product.ProductIndex ? (
-                  <option
-                    key={variation.VariationID}
-                    value={variation.ProductName}
-                    data-variationid={variation.VariationID}
-                  >
-                    {variation.ProductName}
-                  </option>
-                ) : (
-                  ""
-                )
-              )
+            ? productVariations[0].map((variation) => (
+                <option
+                  key={variation.VariationID}
+                  value={variation.ProductName}
+                  data-variationid={variation.VariationID}
+                >
+                  {variation.ProductName}
+                </option>
+              ))
             : ""}
         </select>
         <div

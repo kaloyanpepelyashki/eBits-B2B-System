@@ -1,14 +1,11 @@
 //Importing React hooks
-import { createContext, useState } from "react";
-
-//Importing React-router elements, components and hooks
-import { useNavigate } from "react-router";
+import { createContext, useState, useEffect } from "react";
 
 export const ShoppingCartFunc = createContext();
 
 export const ShoppingCartProvider = (props) => {
   const [cartProducts, setCartProducts] = useState([]);
-  const navigate = useNavigate();
+  const [globalPrices, setGlobalPrices] = useState(0);
 
   const funcs = {
     addProduct: (product) => {
@@ -52,7 +49,6 @@ export const ShoppingCartProvider = (props) => {
             productBaksetUnqKey: `${product.product.ProductIndex} / ${product.VariationID}`,
           },
         ]);
-        console.log(cartProducts);
       }
     },
 
@@ -140,11 +136,11 @@ export const ShoppingCartProvider = (props) => {
         setCartProducts(
           cartProducts.filter(
             (item) =>
-              //Code I removed on last deb
+              //Code I removed on last debug
               // item.product.ProductName !== product.product.ProductName &&
-              // item.product.ProductIndex !== product.product.ProductIndex &&
+              item.product.ProductIndex !== product.product.ProductIndex &&
               item.VariationName?.toLowerCase() !==
-              product.VariationName?.toLowerCase()
+                product.VariationName?.toLowerCase()
           )
         );
       } else {
@@ -166,20 +162,27 @@ export const ShoppingCartProvider = (props) => {
         );
       }
     },
-
-    handlePageTransfer: (nextDestination) => {
-      const cartProductsJSON = JSON.stringify(cartProducts);
+    //The function that handles the page transfer, when data needs to be stored in the session storage
+    handlePageTransfer: () => {
+      const cartProductsFiltered = cartProducts.filter(
+        (product) => product.qty > 0
+      );
+      const cartProductsJSON = JSON.stringify(cartProductsFiltered);
       sessionStorage.setItem("cartProducts", cartProductsJSON);
-
-      () => {
-        navigate(nextDestination);
-        console.log("In the context");
-      };
+      console.log(sessionStorage);
     },
   };
 
   return (
-    <ShoppingCartFunc.Provider value={{ cartProducts, funcs, setCartProducts }}>
+    <ShoppingCartFunc.Provider
+      value={{
+        cartProducts,
+        funcs,
+        setCartProducts,
+        globalPrices,
+        setGlobalPrices,
+      }}
+    >
       {props.children}
     </ShoppingCartFunc.Provider>
   );

@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
 import ProductSearchBar from "../Context Components/ProductDisplaySearchBar";
 import { ShoppingCartProvider } from "../Context Components/ShoppingCartFuncContext";
+import BasketProductsDisplay from "./BasketItemsDisplay";
 
 export default function PageLeftSide(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");
@@ -37,6 +38,7 @@ export default function PageLeftSide(props) {
 
   //Importing data and functions from component's props
   const productList = props.productsList;
+  const setGlobalPrices = props.setGlobalPrices;
 
   //Setting the search filtering function
   //It takes the user input and filters out the array accordingly
@@ -77,51 +79,14 @@ export default function PageLeftSide(props) {
           <h2 className="text-HeadingSmall">Your products :</h2>
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
-              <div
+              <BasketProductsDisplay
                 key={product.productBaksetUnqKey}
-                style={{ display: "flex" }}
-              >
-                <h2>
-                  {product.productName} / {product.VariationName}
-                </h2>
-                <button
-                  style={{
-                    width: "33px",
-                    marginLeft: "10px",
-                    border: "1px solid black",
-                    padding: "5px 10px",
-                  }}
-                  onClick={() => {
-                    handleIncreaseProductAmount(product);
-                  }}
-                >
-                  +
-                </button>
-                <h2 style={{ marginLeft: "10px" }}>
-                  <b>{product.qty}</b>
-                </h2>
-                <button
-                  style={{
-                    width: "33px",
-                    marginLeft: "10px",
-                    border: "1px solid black",
-                    padding: "5px 10px",
-                  }}
-                  onClick={() => {
-                    handleReduceProductAmount(product);
-                  }}
-                >
-                  -
-                </button>
-                <button
-                  style={{ marginLeft: "10px", border: "1px solid black" }}
-                  onClick={() => {
-                    handleRemoveProduct(product);
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
+                product={product}
+                handleIncreaseProductAmount={handleIncreaseProductAmount}
+                handleReduceProductAmount={handleReduceProductAmount}
+                handleRemoveProduct={handleRemoveProduct}
+                setGlobalPrices={setGlobalPrices}
+              />
             ) : (
               ""
             )

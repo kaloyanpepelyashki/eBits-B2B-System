@@ -1,10 +1,14 @@
 //Importing React hooks
 import { useState } from "react";
 
+//Importing React-router elements, components and hooks
+import { useNavigate } from "react-router";
+
 //Importing components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
 export default function ChoiceBuyOrCreate() {
+  const navigate = useNavigate();
   const [routeChoice2, setRouteChoice2] = useState(0);
   const nextDest =
     routeChoice2 == 1
@@ -12,6 +16,10 @@ export default function ChoiceBuyOrCreate() {
       : routeChoice2 == 2
       ? "/productSelectionPageKC"
       : "";
+
+  const handleTransfer = () => {
+    navigate(nextDest);
+  };
   return (
     <>
       <main className="TypeOfOrder-page-content-wrapper page-main-section">
@@ -47,7 +55,7 @@ export default function ChoiceBuyOrCreate() {
             </div>
           </div>
         </div>
-        <ButtonsHolder nextDestination={nextDest} />
+        <ButtonsHolder handleTransfer={handleTransfer} />
       </main>
     </>
   );

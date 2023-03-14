@@ -1,7 +1,12 @@
 import { useState } from "react";
+
+//Importing React-router elements, components and hooks
+import { useNavigate } from "react-router";
+
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
 export default function TypeOfOrderPage() {
+  const navigate = useNavigate();
   const [routeChoice, setRouteChoice] = useState(0);
   const [nextRoute, setNextRoute] = useState("");
 
@@ -13,6 +18,11 @@ export default function TypeOfOrderPage() {
       : routeChoice == 2
       ? "/productSelectionPageSP"
       : "";
+
+  const handleTransfer = () => {
+    navigate(nextDest);
+  };
+
   return (
     <>
       <main className="TypeOfOrder-page-content-wrapper page-main-section">
@@ -47,7 +57,7 @@ export default function TypeOfOrderPage() {
             </div>
           </div>
         </div>
-        <ButtonsHolder nextDestination={nextDest} />
+        <ButtonsHolder handleTransfer={handleTransfer} />
       </main>
     </>
   );

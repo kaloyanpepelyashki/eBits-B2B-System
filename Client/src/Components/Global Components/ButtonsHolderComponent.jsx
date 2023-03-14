@@ -1,17 +1,9 @@
-export default function ButtonsHolder({
-  nextDestination,
-  transferFunc,
-  navigate,
-}) {
-  const NextDestination = nextDestination;
+//Importing React-router elements and components
+import { useNavigate } from "react-router";
 
-  const handleTransfer = () => {
-    transferFunc();
-    console.log("Inside ButtonsHolder component");
-    console.log(NextDestination);
-    console.log(transferFunc);
-    navigate(NextDestination);
-  };
+export default function ButtonsHolder({ handleTransfer }) {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="buttons-holder">
@@ -24,8 +16,7 @@ export default function ButtonsHolder({
           </button>
           <button
             className="btn-holder-next bg-primary-color text-GlobalBtnsTxt text-txt-white-color"
-            type="button"
-            onClick={() => handleTransfer()}
+            onClick={handleTransfer}
           >
             Next
           </button>

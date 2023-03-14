@@ -32,7 +32,6 @@ function App() {
       await fetch("http://65.109.137.46:5000/api")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setProductsList(data);
         })
         .catch((err) => {
@@ -45,7 +44,6 @@ function App() {
   //
   ////
   //////
-  console.log(productsList);
   return (
     <div className="App">
       <HeaderBar />
