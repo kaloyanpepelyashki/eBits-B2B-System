@@ -1,6 +1,8 @@
 //Importin React hooks
 import { useContext } from "react";
 
+import { useNavigate } from "react-router";
+
 //Importing components
 import {
   ShoppingCartFunc,
@@ -10,12 +12,15 @@ import ButtonsHolder from "../../Components/Global Components/ButtonsHolderCompo
 import PageLeftSide from "../../Components/Global Components/PageLeftSide";
 
 export default function ProductSelectionPageSP({ productsList }) {
+  const navigate = useNavigate();
   const {
     funcs: { handlePageTransfer },
   } = useContext(ShoppingCartFunc);
 
   const transferFunc = (nextDestination) => {
     handlePageTransfer(nextDestination);
+    console.log("In the ProductSelectionPageSP");
+    console.log(handlePageTransfer);
   };
   return (
     <>
@@ -27,6 +32,7 @@ export default function ProductSelectionPageSP({ productsList }) {
           <ButtonsHolder
             nextDestination={"/productSelectionPageSP"}
             transferFunc={transferFunc}
+            navigate={navigate}
           />
           {/* </ShoppingCartProvider> */}
         </div>

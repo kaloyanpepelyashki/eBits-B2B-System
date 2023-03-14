@@ -173,6 +173,7 @@ export const ShoppingCartProvider = (props) => {
 
       () => {
         navigate(nextDestination);
+        console.log("In the context");
       };
     },
   };

@@ -1,12 +1,16 @@
-//Importing React-router elements, components and hooks
-import { useNavigate } from "react-router";
-
-export default function ButtonsHolder({ nextDestination, transferFunc }) {
-  const navigate = useNavigate();
+export default function ButtonsHolder({
+  nextDestination,
+  transferFunc,
+  navigate,
+}) {
   const NextDestination = nextDestination;
 
   const handleTransfer = () => {
-    transferFunc(NextDestination);
+    transferFunc();
+    console.log("Inside ButtonsHolder component");
+    console.log(NextDestination);
+    console.log(transferFunc);
+    navigate(NextDestination);
   };
   return (
     <>
