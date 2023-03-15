@@ -51,10 +51,11 @@ export default function BasketProductsDisplay(props) {
               setGlobalPrices(Number(parsedData.toFixed(2)));
             } else {
               //If it is not equal to 0, then it adds the new price to the old value
-              setGlobalPrices(
-                (prevPrice) =>
-                  +(Number(prevPrice) + Number(parsedData.toFixed(2)))
-              );
+              setGlobalPrices((prevPrice) => {
+                return Number(
+                  (prevPrice + Number(parsedData.toFixed(2))).toFixed(2)
+                );
+              });
             }
           }
         })

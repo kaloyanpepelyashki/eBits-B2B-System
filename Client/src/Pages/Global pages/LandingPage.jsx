@@ -1,9 +1,13 @@
+//Importing React hooks
 import { useState } from "react";
 
 //Importing React-router elements, components and hooks
 import { useNavigate } from "react-router";
 
+//Importing libraries
 import axios from "axios";
+
+//Importing components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
 export default function LandingPage({ productsList }) {

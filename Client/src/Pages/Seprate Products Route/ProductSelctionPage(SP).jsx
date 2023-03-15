@@ -12,6 +12,7 @@ import PageLeftSide from "../../Components/Global Components/PageLeftSide";
 
 export default function ProductSelectionPageSP({ productsList }) {
   const navigate = useNavigate();
+  //Destructuring from the ShoppingCartFunc context
   const {
     funcs: { handlePageTransfer },
     globalPrices,

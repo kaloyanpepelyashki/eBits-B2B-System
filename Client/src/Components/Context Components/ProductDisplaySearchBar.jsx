@@ -1,3 +1,4 @@
+//Importing React hooks
 import { useState, useEffect } from "react";
 
 export default function ProductSearchBar({ product, addProduct }) {
