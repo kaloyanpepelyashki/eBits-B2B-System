@@ -15,6 +15,8 @@ module.exports = {
       HeadingSmall: "16pt",
       ProductTitleSmall: "9pt",
       VariationTitle: "7pt",
+      ReceiptPriceL: "38pt",
+      ReceiptPriceM: "30pt",
     },
   },
   plugins: [],

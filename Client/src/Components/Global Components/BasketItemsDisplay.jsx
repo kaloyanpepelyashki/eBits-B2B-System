@@ -111,7 +111,7 @@ export default function BasketProductsDisplay(props) {
         >
           Remove
         </button>
-        <p>{productPrice}</p>
+        <p style={{ marginLeft: "20px" }}>{productPrice}</p>
       </div>
     </>
   );
