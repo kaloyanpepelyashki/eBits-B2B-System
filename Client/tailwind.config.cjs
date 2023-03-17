@@ -3,6 +3,9 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      'custom': ['jetbrains-mono', 'JetBrains', 'sans-serif'],
+    },
     colors: {
       "primary-color": "#551C50",
       "txt-grey-color": "#959595",
@@ -10,8 +13,8 @@ module.exports = {
       "txt-white-color": "#FFFFFF",
     },
     fontSize: {
-      TextBig: "28pt",
-      GlobalBtnsTxt: "23pt",
+      TextBig: "25pt",
+      GlobalBtnsTxt: "15pt",
       HeadingSmall: "16pt",
       ProductTitleSmall: "9pt",
       VariationTitle: "7pt",

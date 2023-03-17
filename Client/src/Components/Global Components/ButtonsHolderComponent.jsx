@@ -9,19 +9,19 @@ export default function ButtonsHolder({ handleTransfer }) {
       <div className="buttons-holder">
         <div className="buttons-holder-inner">
           <button
-            className="btn-holder-back text-GlobalBtnsTxt"
+            className="btn-holder-back text-GlobalBtnsTxt font-semibold mx-5"
             onClick={() => navigate(-1)}
           >
             &lt; Back
           </button>
           <button
-            className="btn-holder-next bg-primary-color text-GlobalBtnsTxt text-txt-white-color"
+            className="btn-holder-next bg-primary-color rounded-sm text-GlobalBtnsTxt font-normal mx-5 "
             onClick={handleTransfer}
           >
             Next
           </button>
+          </div>
         </div>
-      </div>
     </>
   );
 }

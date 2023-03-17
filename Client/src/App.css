@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,9 +83,13 @@ img {
     padding: 0px 25px;
   }
   .btn-holder-next {
+    color: rgb(228, 228, 228);
     width: 178px;
     height: 55px;
     font-size: 23px;
+  }
+  .btn-holder-back{
+    color: rgb(136, 136, 136);
   }
 
 
@@ -160,11 +165,16 @@ img {
     align-items: center;
   }
   .landing-page-welcome-header {
-    width: 800px
+    width: fit-content;
+    color: rgb(124, 124, 124);
   }
   .email-input-field {
     width: 370px;
     height: 45px;
+  }
+  .form-btn{
+    color: rgb(228, 228, 228);
+    margin-bottom: 100px;
   }
 
   
@@ -185,17 +195,17 @@ img {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 177px;
   }
 
   .TypeOfOrder-page-choice-item {
     display: flex;
     flex-direction: row;
-    align-items: center;
   }
 
   .route-choice-input {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
   
      /***  <==== === ! | PRODUCT SELECTION PAGE | ! === ====>  ***/

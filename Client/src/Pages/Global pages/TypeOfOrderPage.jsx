@@ -27,11 +27,11 @@ export default function TypeOfOrderPage() {
     <>
       <main className="TypeOfOrder-page-content-wrapper page-main-section">
         <div className="TypeOfOrder-inner-content">
-          <h1 className="TypeOfOrder-page-header text-TextBig">
+          <h1 className="TypeOfOrder-page-header text-TextBig text-primary-color font-normal mt-20 mb-10">
             What are you ordering?
           </h1>
-          <div className="TypeOfOrder-page-route-choice-holder">
-            <div className="TypeOfOrder-page-choice-item">
+          <div className="TypeOfOrder-page-route-choice-holder mx-8">
+            <div className="TypeOfOrder-page-choice-item font-semibold space-x-4">
               <input
                 name="route-choice"
                 className="route-choice-input"
@@ -41,11 +41,11 @@ export default function TypeOfOrderPage() {
                   setRouteChoice(e.target.value);
                 }}
               />
-              <p className="TypeOfOrder-page-choice-text">A kit</p>
+              <p className="TypeOfOrder-page-choice-text font-semibold text-HeadingSmall">A kit</p>
             </div>
-            <div className="TypeOfOrder-page-choice-item">
+            <div className="TypeOfOrder-page-choice-item space-x-4">
               <input
-                name="route-choice"
+                name="route-choice"   
                 className="route-choice-input"
                 type="radio"
                 value="2"
@@ -53,7 +53,7 @@ export default function TypeOfOrderPage() {
                   setRouteChoice(e.target.value);
                 }}
               />
-              <p className="TypeOfOrder-page-choice-text">Separate products</p>
+              <p className="TypeOfOrder-page-choice-text font-bold text-HeadingSmall">Separate products</p>
             </div>
           </div>
         </div>
