@@ -210,7 +210,7 @@ img {
   
      /***  <==== === ! | PRODUCT SELECTION PAGE | ! === ====>  ***/
 
-    .product-selection-page-widgets-holder {
+    .page-widgets-holder {
       display: flex;
       justify-content: space-between;
       padding: 15px 25px;
