@@ -11,6 +11,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 //Importing styling sheet
 import "./App.css";
 import { ShoppingCartProvider } from "./Components/Context Components/ShoppingCartFuncContext";
+import { ContactInfoContProvider } from "./Components/Context Components/ContactsInformationContext";
 
 //Importing Components
 import HeaderBar from "./Components/Global Components/HeaderBar";
@@ -23,6 +24,7 @@ import ProductSelectionPageKB from "./Pages/Kit route/Buy a Kit/ProductSelection
 import ChoiceBuyOrCreate from "./Pages/Kit route/BuyOrCreate";
 import ProductSelectionPageKC from "./Pages/Kit route/Compose a Kit/ProductSelectionPage";
 import ProductSelectionPageSP from "./Pages/Seprate Products Route/ProductSelctionPage(SP)";
+import FinalCheckPage from "./Pages/Global pages/FinalCheckPage";
 
 function App() {
   //Fetching data from the server
@@ -52,32 +54,35 @@ function App() {
     <div className="App">
       <HeaderBar />
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <ShoppingCartProvider>
-          <Routes>
-            <Route
-              path="/"
-              element={<LandingPage productsList={productsList} />}
-            />
-            <Route path="/orderType" element={<TypeOfOrderPage />} />
-            {/* <==== ! | Separate products routes | ! ====>  */}
-            <Route
-              path="/productSelectionPageSP"
-              element={<ProductSelectionPageSP productsList={productsList} />}
-            />
-            <Route path="/contactInfoPage" element={<ContactInfoPage />} />
-            {/* <==== ! | Kit routes | ! ====>  */}
-            <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
-            <Route
-              path="/productSelectionPageKb"
-              element={<ProductSelectionPageKB productsList={productsList} />}
-            />
-            <Route
-              path="/productSelectionPageKC"
-              element={<ProductSelectionPageKC productsList={productsList} />}
-            />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </ShoppingCartProvider>
+        <ContactInfoContProvider>
+          <ShoppingCartProvider>
+            <Routes>
+              <Route
+                path="/"
+                element={<LandingPage productsList={productsList} />}
+              />
+              <Route path="/orderType" element={<TypeOfOrderPage />} />
+              <Route path="/finalChackPage" element={<FinalCheckPage />} />
+              {/* <==== ! | Separate products routes | ! ====>  */}
+              <Route
+                path="/productSelectionPageSP"
+                element={<ProductSelectionPageSP productsList={productsList} />}
+              />
+              <Route path="/contactInfoPage" element={<ContactInfoPage />} />
+              {/* <==== ! | Kit routes | ! ====>  */}
+              <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
+              <Route
+                path="/productSelectionPageKb"
+                element={<ProductSelectionPageKB productsList={productsList} />}
+              />
+              <Route
+                path="/productSelectionPageKC"
+                element={<ProductSelectionPageKC productsList={productsList} />}
+              />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </ShoppingCartProvider>
+        </ContactInfoContProvider>
       </LocalizationProvider>
     </div>
   );
