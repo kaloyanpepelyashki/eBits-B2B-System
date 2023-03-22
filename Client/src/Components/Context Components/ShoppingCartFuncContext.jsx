@@ -12,8 +12,8 @@ export const ShoppingCartProvider = (props) => {
       //Return true if there is a product with an index in the cart, that is equal to the product index you are adding to the cart now
       const doesExist = cartProducts.find(
         (item) =>
-          item.product.ProductName === product.product.ProductName &&
-          item.product.ProductIndex === product.product.ProductIndex &&
+          item.ProductName === product.ProductName &&
+          item.ProductIndex === product.ProductIndex &&
           item.VariationName?.toLowerCase() ===
             product.VariationName?.toLowerCase() &&
           item.VariationID === product.VariationID
@@ -22,8 +22,8 @@ export const ShoppingCartProvider = (props) => {
       if (doesExist) {
         setCartProducts(
           cartProducts.map((item) =>
-            item.product.ProductName === product.product.ProductName &&
-            item.product.ProductIndex === product.product.ProductIndex &&
+            item.ProductName === product.ProductName &&
+            item.ProductIndex === product.ProductIndex &&
             item.VariationName?.toLowerCase() ===
               product.VariationName?.toLowerCase() &&
             item.VariationID === product.VariationID
@@ -43,10 +43,10 @@ export const ShoppingCartProvider = (props) => {
             ...product,
             qty: 1,
             varQty: 1,
-            productName: product.product.ProductName,
+            productName: product.ProductName,
             VariationName: product.VariationName,
             VariationID: product.VariationID,
-            productBaksetUnqKey: `${product.product.ProductIndex} / ${product.VariationID}`,
+            productBaksetUnqKey: `${product.ProductIndex} / ${product.VariationID}`,
           },
         ]);
       }
@@ -57,8 +57,8 @@ export const ShoppingCartProvider = (props) => {
     reduceProductAmount: (product) => {
       const doesExist = cartProducts.find(
         (item) =>
-          item.product.ProductName === product.product.ProductName &&
-          item.product.ProductIndex === product.product.ProductIndex &&
+          item.ProductName === product.ProductName &&
+          item.ProductIndex === product.ProductIndex &&
           item.VariationName?.toLowerCase() ===
             product.VariationName?.toLowerCase() &&
           item.VariationID === product.VariationID &&
@@ -79,8 +79,8 @@ export const ShoppingCartProvider = (props) => {
       } else {
         setCartProducts(
           cartProducts.map((item) =>
-            item.product.ProductName === product.product.ProductName &&
-            item.product.ProductIndex === product.product.ProductIndex &&
+            item.ProductName === product.ProductName &&
+            item.ProductIndex === product.ProductIndex &&
             item.VariationName?.toLowerCase() ===
               product.VariationName?.toLowerCase() &&
             item.VariationID === product.VariationID
@@ -97,16 +97,16 @@ export const ShoppingCartProvider = (props) => {
     increaseProductAmount: (product) => {
       const doesExist = cartProducts.find(
         (item) =>
-          item.product.ProductName === product.product.ProductName &&
-          item.product.ProductIndex === product.product.ProductIndex &&
+          item.ProductName === product.ProductName &&
+          item.ProductIndex === product.ProductIndex &&
           item.VariationName?.toLowerCase() ===
             product.VariationName?.toLowerCase() &&
           item.VariationID === product.VariationID
       );
       setCartProducts(
         cartProducts.map((item) =>
-          item.product.ProductName === product.product.ProductName &&
-          item.product.ProductIndex === product.product.ProductIndex &&
+          item.ProductName === product.ProductName &&
+          item.ProductIndex === product.ProductIndex &&
           item.VariationName?.toLowerCase() ===
             product.VariationName?.toLowerCase() &&
           item.VariationID === product.VariationID
@@ -125,8 +125,8 @@ export const ShoppingCartProvider = (props) => {
     removeProduct: (product) => {
       const doesExist = cartProducts.find(
         (item) =>
-          item.product.ProductName === product.product.ProductName &&
-          item.product.ProductIndex === product.product.ProductIndex &&
+          item.ProductName === product.ProductName &&
+          item.ProductIndex === product.ProductIndex &&
           item.VariationName?.toLowerCase() ===
             product.VariationName?.toLowerCase() &&
           item.VariationID === product.VariationID &&
@@ -138,7 +138,7 @@ export const ShoppingCartProvider = (props) => {
             (item) =>
               //Code I removed on last debug
               // item.product.ProductName !== product.product.ProductName &&
-              item.product.ProductIndex !== product.product.ProductIndex &&
+              item.ProductIndex !== product.ProductIndex &&
               item.VariationName?.toLowerCase() !==
                 product.VariationName?.toLowerCase()
           )
@@ -146,8 +146,8 @@ export const ShoppingCartProvider = (props) => {
       } else {
         setCartProducts(
           cartProducts.map((item) =>
-            item.product.ProductName === product.product.ProductName &&
-            item.product.ProductIndex === product.product.ProductIndex &&
+            item.ProductName === product.ProductName &&
+            item.ProductIndex === product.ProductIndex &&
             item.VariationName?.toLowerCase() ===
               product.VariationName?.toLowerCase() &&
             item.VariationID === product.VariationID &&

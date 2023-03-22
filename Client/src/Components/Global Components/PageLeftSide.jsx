@@ -64,7 +64,7 @@ export default function PageLeftSide(props) {
           />
           {Array.isArray(filterFunc) && searchQuerry !== ""
             ? filterFunc
-                .slice(0, 5)
+                .slice(0, 3)
                 .map((product) => (
                   <ProductSearchBar
                     product={product}

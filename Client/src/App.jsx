@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 //Importing React-router elements and components
 import { Navigate, Route, Routes } from "react-router";
 
+//Importing MUI elements, dependencies and components
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+
 //Importing styling sheet
 import "./App.css";
 import { ShoppingCartProvider } from "./Components/Context Components/ShoppingCartFuncContext";
@@ -47,32 +51,34 @@ function App() {
   return (
     <div className="App">
       <HeaderBar />
-      <ShoppingCartProvider>
-        <Routes>
-          <Route
-            path="/"
-            element={<LandingPage productsList={productsList} />}
-          />
-          <Route path="/orderType" element={<TypeOfOrderPage />} />
-          {/* <==== ! | Separate products routes | ! ====>  */}
-          <Route
-            path="/productSelectionPageSP"
-            element={<ProductSelectionPageSP productsList={productsList} />}
-          />
-          <Route path="/contactInfoPage" element={<ContactInfoPage />} />
-          {/* <==== ! | Kit routes | ! ====>  */}
-          <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
-          <Route
-            path="/productSelectionPageKb"
-            element={<ProductSelectionPageKB productsList={productsList} />}
-          />
-          <Route
-            path="/productSelectionPageKC"
-            element={<ProductSelectionPageKC productsList={productsList} />}
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </ShoppingCartProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ShoppingCartProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={<LandingPage productsList={productsList} />}
+            />
+            <Route path="/orderType" element={<TypeOfOrderPage />} />
+            {/* <==== ! | Separate products routes | ! ====>  */}
+            <Route
+              path="/productSelectionPageSP"
+              element={<ProductSelectionPageSP productsList={productsList} />}
+            />
+            <Route path="/contactInfoPage" element={<ContactInfoPage />} />
+            {/* <==== ! | Kit routes | ! ====>  */}
+            <Route path="/buyOrCreate" element={<ChoiceBuyOrCreate />} />
+            <Route
+              path="/productSelectionPageKb"
+              element={<ProductSelectionPageKB productsList={productsList} />}
+            />
+            <Route
+              path="/productSelectionPageKC"
+              element={<ProductSelectionPageKC productsList={productsList} />}
+            />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </ShoppingCartProvider>
+      </LocalizationProvider>
     </div>
   );
 }

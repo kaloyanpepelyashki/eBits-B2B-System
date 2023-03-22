@@ -4,7 +4,7 @@ export default function SeparateProductsReceipt(props) {
     <>
       <div className="receipt-holder">
         <h1>Total</h1>
-        <p className="text-ReceiptPriceL">{globalPrices}</p>
+        <p className="text-ReceiptPriceL">{globalPrices / 2}</p>
       </div>
     </>
   );
