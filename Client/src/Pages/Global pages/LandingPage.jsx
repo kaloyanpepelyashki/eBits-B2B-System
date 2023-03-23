@@ -52,13 +52,13 @@ export default function LandingPage({ productsList }) {
     <>
       <main className="landing-page-content-wrapper page-main-section">
         <div className="landing-page-inner-content">
-          <h1 className="landing-page-welcome-header text-TextBig mt-20">
+          <h1 className="landing-page-welcome-header text-TextBig mt-20 mb-10">
             Before starting your shop journey, do<br/> you want us to send you
             <b className="text-primary-color"> our catalog</b>?
           </h1>
-          {emailValidation ? " " : <p>Please enter a valid email</p>}
+          {emailValidation ? " " : <p className="email-validation">Please enter a valid email</p>}
           <input
-            className="email-input-field mt-12 block px-3 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
+            className="email-input-field block px-3 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
             focus:outline-none"
             type="text"
             placeholder="Your Email..."

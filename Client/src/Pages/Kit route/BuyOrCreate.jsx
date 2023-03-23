@@ -24,32 +24,32 @@ export default function ChoiceBuyOrCreate() {
     <>
       <main className="TypeOfOrder-page-content-wrapper page-main-section">
         <div className="TypeOfOrder-inner-content">
-          <div className="TypeOfOrder-page-route-choice-holder">
+          <div className="TypeOfOrder-page-route-choice-hold">
             <div className="TypeOfOrder-page-choice-item">
               <input
                 name="route-choice"
-                className="route-choice-input"
+                className="route-choice-input mt-40 mr-4"
                 type="radio"
                 value="1"
                 onChange={(e) => {
                   setRouteChoice2(e.target.value);
                 }}
               />
-              <p className="TypeOfOrder-page-choice-text">
+              <p className="TypeOfOrder-page-choice-text font-semibold text-HeadingSmall mt-40 mb-10">
                 I want to buy a kit
               </p>
             </div>
             <div className="TypeOfOrder-page-choice-item">
               <input
                 name="route-choice"
-                className="route-choice-input"
+                className="route-choice-input mr-4"
                 type="radio"
                 value="2"
                 onChange={(e) => {
                   setRouteChoice2(e.target.value);
                 }}
               />
-              <p className="TypeOfOrder-page-choice-text">
+              <p className="TypeOfOrder-page-choice-text font-semibold text-HeadingSmall">
                 I want to create a kit
               </p>
             </div>
