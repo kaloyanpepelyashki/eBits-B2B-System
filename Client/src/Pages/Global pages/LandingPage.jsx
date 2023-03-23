@@ -59,7 +59,7 @@ export default function LandingPage({ productsList }) {
           {emailValidation ? " " : <p className="email-validation">Please enter a valid email</p>}
           <input
             className="email-input-field block px-3 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
-            focus:outline-none"
+            focus:outline-none "
             type="text"
             placeholder="Your Email..."
             onChange={(e) => setEmailAddress(e.target.value)}

@@ -14,8 +14,10 @@ module.exports = {
     },
     fontSize: {
       TextBig: "25pt",
+      TextMid: "20pt",
       GlobalBtnsTxt: "15pt",
       HeadingSmall: "16pt",
+      cardText: "14pt",
       ProductTitleSmall: "9pt",
       VariationTitle: "7pt",
       ReceiptPriceL: "38pt",

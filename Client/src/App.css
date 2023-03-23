@@ -95,20 +95,24 @@ img {
 
     /* <--- --- | PAGE LEFT SIDE SEARCH COMPONENT STYLING | --- ---> */
 
+  .page-left-side-wrapper{
+    margin: 20px 10px 3px 50px;
+   }
+
   .line {
-    width: 500px;
+    width: 800px;
     height: 2px;
     background-color: grey;
   }
 
     .line-2 {
-      margin-top: 180px;
+      margin-top: 50px;
+      margin-bottom: 20px;
     }
 
     .page-left-side-search-bar {
       margin: 10px 0px;
     }
-
 
 
 
@@ -276,9 +280,20 @@ img {
 
 
 
-     /***  <==== === ! | DELETE LATER | ! === ====>  ***/
+     /***  <==== === ! | DELETE LATER? | ! === ====>  ***/
     .receipt-holder {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      margin: 20px 50px 3px 10px;
+      text-align: center;
+    }
+
+    .ReceiptPriceL{
+      text-align: center;
+    }
+
+    .line-3{
+    width: 250px;
+    height: 2px;
+    background-color: grey;
     }

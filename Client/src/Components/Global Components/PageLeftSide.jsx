@@ -1,11 +1,15 @@
 //Importin React hooks
 import { useContext, useState } from "react";
+import Icon from '@mdi/react';
+import { mdiMagnify } from '@mdi/js';
 
 //Importing components
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
 import ProductSearchBar from "../Context Components/ProductDisplaySearchBar";
 import { ShoppingCartProvider } from "../Context Components/ShoppingCartFuncContext";
 import BasketProductsDisplay from "./BasketItemsDisplay";
+import { color } from "@mui/system";
+import { purple } from "@mui/material/colors";
 
 export default function PageLeftSide(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");
@@ -52,16 +56,19 @@ export default function PageLeftSide(props) {
 
   return (
     <>
-      <div className="page-left-side-wrapper">
+      <div className="page-left-side-wrapper block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            focus:outline-none relative">
         {props.children}
         <div className="page-left-side-main-section">
           {/* <= //The input field the user types in */}
-          <input
+          <input 
+            className="page-left-side-search-bar block px-4 py-2 pr-24 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+            focus:outline-none" 
             type="text"
-            placeholder="Product name here"
+            placeholder="Product name here..."
             onChange={(e) => setSearchQuerry(e.target.value)}
-            className="page-left-side-search-bar"
-          />
+          /><Icon className="absolute ml-72 -mt-10 py-0" path={mdiMagnify} size={1} />
+
           {Array.isArray(filterFunc) && searchQuerry !== ""
             ? filterFunc
                 .slice(0, 3)
@@ -76,7 +83,7 @@ export default function PageLeftSide(props) {
           <div className="line line-2"></div>
         </div>
         <div className="page-left-side-bottom-section">
-          <h2 className="text-HeadingSmall">Your products :</h2>
+          <h2 className="text-cardText text-primary-color">Your products</h2>
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
               <BasketProductsDisplay
