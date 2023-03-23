@@ -1,18 +1,21 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { ContactsInformationFunc } from "../../Components/Context Components/ContactsInformationContext";
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 import PageLeftSideStaticContacts from "../../Components/Global Components/PageLeftSideStaticContacts";
 
 export default function ContactInfoPage() {
   const { contactInfoState } = useContext(ContactsInformationFunc);
-
+  const location = useLocation();
   const navigate = useNavigate();
+
+  console.log(location.cartProducts);
   const handleTransfer = () => {
     if (
       contactInfoState.name &&
       contactInfoState.lastName &&
-      contactInfoState.email
+      contactInfoState.email &&
+      contactInfoState.deliveryDate
     ) {
       navigate("/finalChackPage", {
         state: {

@@ -15,6 +15,7 @@ export default function ProductSelectionPageSP({ productsList }) {
   const navigate = useNavigate();
   //Destructuring from the ShoppingCartFunc context
   const {
+    cartProducts,
     funcs: { handlePageTransfer },
     globalPrices,
     setGlobalPrices,
@@ -29,7 +30,7 @@ export default function ProductSelectionPageSP({ productsList }) {
     <>
       <main className="product-selectionSP-page-content-wrapper product-selection-page-content-wrapper page-main-section">
         <div className="product-selectionSP-page-inner-content product-selection-page-inner-content">
-          <div className="product-selectionSP-page-widgets-holder product-selection-page-widgets-holder">
+          <div className="product-selectionSP-page-widgets-holder page-widgets-holder">
             <PageLeftSide
               globalPrices={globalPrices}
               setGlobalPrices={setGlobalPrices}

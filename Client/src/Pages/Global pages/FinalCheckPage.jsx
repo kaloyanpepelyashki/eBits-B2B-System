@@ -1,14 +1,23 @@
 import { useLocation } from "react-router";
+import PageLeftSideFinalCheckPage from "../../Components/Global Components/PageLeftSideFinalCheckPage";
 
 export default function FinalCheckPage() {
   const location = useLocation();
 
   console.log(location.contactInfoState);
+
+  const cardData = sessionStorage.getItem("cartProducts");
+
+  console.log(JSON.parse(cardData));
   return (
     <>
-      <h2>This is final chack page</h2>
-      <h1>{location.state.name}</h1>
-      <h1>{location.state.deliveryDate}</h1>
+      <main className="final-check-page-content-wrapper page-main-section">
+        <div className="final-check-page-inner-content page-inner-content">
+          <div className="final-check-page-widgets-holder page-widgets-holder">
+            <PageLeftSideFinalCheckPage />
+          </div>
+        </div>
+      </main>
     </>
   );
 }

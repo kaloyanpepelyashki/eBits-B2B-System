@@ -11,13 +11,13 @@ export default function ProductSelectionPageKB({ productsList }) {
       <main className="product-selectionKB-page-content-wrapper product-selection-page-content-wrapper page-main-section">
         <div className="product-selectionKB-page-inner-content product-selection-page-inner-content">
           {/* //Wrapping the PageLefSide in the ShoppingCartProvider context component, so I can pass the context functions */}
-          <ShoppingCartProvider>
+          <div className="product-selectionSP-page-widgets-holder page-widgets-holder">
             <PageLeftSide productsList={productsList}>
               <PageLeftTopSection />
             </PageLeftSide>
-          </ShoppingCartProvider>
-          <ButtonsHolder />
+          </div>
         </div>
+        <ButtonsHolder />
       </main>
     </>
   );
