@@ -2,11 +2,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 
+//Importing contecxt components
+import { ShoppingCartFunc } from "../../Components/Context Components/ShoppingCartFuncContext";
+
 //Importing components
-import {
-  ShoppingCartFunc,
-  ShoppingCartProvider,
-} from "../../Components/Context Components/ShoppingCartFuncContext";
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 import PageLeftSide from "../../Components/Global Components/PageLeftSide";
 import SeparateProductsReceipt from "../../Components/Global Components/SeparateProductReceipt";

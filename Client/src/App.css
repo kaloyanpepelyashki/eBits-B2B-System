@@ -96,6 +96,8 @@ img {
     /* <--- --- | PAGE LEFT SIDE SEARCH COMPONENT STYLING | --- ---> */
 
   .page-left-side-wrapper{
+    width: 775px;
+    height: 525px;
     margin: 20px 10px 3px 50px;
    }
 
@@ -277,6 +279,36 @@ img {
     }
       
   
+
+          /***  <==== === ! | FINAL CHECK PAGE | ! === ====>  ***/
+
+     
+           /* <--- --- | PAGE LEFT SIDE - FINAL CHECK COMPONENT STYLING | --- ---> */       
+    
+    .final-check-product-table {
+      padding: 10px 6px;
+    }
+    .final-check-product-table-I-tag-field {
+      width: 56px;
+      margin-right: 9px;
+    }
+    .final-check-product-table-name-field {
+      width: 385px;
+      margin-right: 9px;
+      text-align: left;
+    }
+    .final-check-product-table-total-field {
+      width: 76px;
+      margin-right: 9px;
+      text-align: left;
+    }
+    .final-check-product-table-amount-field {
+      width: 113px;
+      margin-right: 9px;
+      text-align: left;
+    }
+
+
 
 
 

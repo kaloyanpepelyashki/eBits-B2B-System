@@ -1,5 +1,5 @@
 //Importing React hooks
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 export const ShoppingCartFunc = createContext();
 
@@ -54,6 +54,7 @@ export const ShoppingCartProvider = (props) => {
 
     //<== REDUCE AMOUNT FROM CARD CART FUNCTIONALITY FEATURE
 
+    //TODO Examine, if the application still has the reduction bug (removeing all from the same kind despite the variations. Or removing all the ones that have no variation)
     reduceProductAmount: (product) => {
       const doesExist = cartProducts.find(
         (item) =>
