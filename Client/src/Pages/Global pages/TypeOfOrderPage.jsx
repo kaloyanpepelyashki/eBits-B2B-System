@@ -1,10 +1,14 @@
+//Importing React hooks
 import { useState } from "react";
-import Icon from '@mdi/react';
-import { mdiPackageVariantClosed, mdiPackageVariantClosedPlus} from '@mdi/js';
+
+//Importing Material design and material design components
+import Icon from "@mdi/react";
+import { mdiPackageVariantClosed, mdiPackageVariantClosedPlus } from "@mdi/js";
 
 //Importing React-router elements, components and hooks
 import { useNavigate } from "react-router";
 
+//Importing Components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 
 export default function TypeOfOrderPage() {
@@ -21,6 +25,7 @@ export default function TypeOfOrderPage() {
       ? "/productSelectionPageSP"
       : "";
 
+  //Initiating the page transfer function
   const handleTransfer = () => {
     navigate(nextDest);
   };
@@ -43,12 +48,18 @@ export default function TypeOfOrderPage() {
                   setRouteChoice(e.target.value);
                 }}
               />
-              <p className="TypeOfOrder-page-choice-text font-semibold text-HeadingSmall">A kit
-              <Icon className="inline-block ml-5 mt-4" path={mdiPackageVariantClosed} size={2} /></p>
+              <p className="TypeOfOrder-page-choice-text font-semibold text-HeadingSmall">
+                A kit
+                <Icon
+                  className="inline-block ml-5 mt-4"
+                  path={mdiPackageVariantClosed}
+                  size={2}
+                />
+              </p>
             </div>
             <div className="TypeOfOrder-page-choice-item space-x-4">
               <input
-                name="route-choice"   
+                name="route-choice"
                 className="route-choice-input mt-4"
                 type="radio"
                 value="2"
@@ -56,8 +67,14 @@ export default function TypeOfOrderPage() {
                   setRouteChoice(e.target.value);
                 }}
               />
-              <p className="TypeOfOrder-page-choice-text font-bold text-HeadingSmall">Separate products
-              <Icon className="inline-block ml-4 mt-5" path={mdiPackageVariantClosedPlus} size={2} /></p>
+              <p className="TypeOfOrder-page-choice-text font-bold text-HeadingSmall">
+                Separate products
+                <Icon
+                  className="inline-block ml-4 mt-5"
+                  path={mdiPackageVariantClosedPlus}
+                  size={2}
+                />
+              </p>
             </div>
           </div>
         </div>

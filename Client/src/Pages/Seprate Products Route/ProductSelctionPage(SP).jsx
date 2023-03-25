@@ -20,8 +20,8 @@ export default function ProductSelectionPageSP({ productsList }) {
     setGlobalPrices,
   } = useContext(ShoppingCartFunc);
 
+  //Initiating the page transfer function
   const handleTransfer = () => {
-    handlePageTransfer();
     navigate("/contactInfoPage");
   };
 

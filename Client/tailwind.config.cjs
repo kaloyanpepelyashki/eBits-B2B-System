@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      'custom': ['jetbrains-mono', 'JetBrains', 'sans-serif'],
+      custom: ["jetbrains-mono", "JetBrains", "sans-serif"],
     },
     colors: {
       "primary-color": "#551C50",
@@ -19,6 +19,8 @@ module.exports = {
       HeadingSmall: "16pt",
       cardText: "14pt",
       ProductTitleSmall: "9pt",
+      ProductTitleMedium: "13pt",
+      ProductAmountIndex: "12pt",
       VariationTitle: "7pt",
       ReceiptPriceL: "38pt",
       ReceiptPriceM: "30pt",

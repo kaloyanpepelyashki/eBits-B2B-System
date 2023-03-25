@@ -1,15 +1,17 @@
 //Importin React hooks
 import { useContext, useState } from "react";
-import Icon from '@mdi/react';
-import { mdiMagnify } from '@mdi/js';
 
-//Importing components
+//Importing MUI elements, dependencies and components
+import Icon from "@mdi/react";
+import { mdiMagnify } from "@mdi/js";
+import { color } from "@mui/system";
+import { purple } from "@mui/material/colors";
+
+//Importing Components
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
 import ProductSearchBar from "../Context Components/ProductDisplaySearchBar";
 import { ShoppingCartProvider } from "../Context Components/ShoppingCartFuncContext";
-import BasketProductsDisplay from "./BasketItemsDisplay";
-import { color } from "@mui/system";
-import { purple } from "@mui/material/colors";
+import BasketProductsDisplay from "../Small Components/BasketItemsDisplay";
 
 export default function PageLeftSide(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");
@@ -56,18 +58,25 @@ export default function PageLeftSide(props) {
 
   return (
     <>
-      <div className="page-left-side-wrapper block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
-            focus:outline-none relative">
+      <div
+        className="page-left-side-wrapper block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            focus:outline-none relative"
+      >
         {props.children}
         <div className="page-left-side-main-section">
           {/* <= //The input field the user types in */}
-          <input 
+          <input
             className="page-left-side-search-bar block px-4 py-2 pr-24 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
-            focus:outline-none" 
+            focus:outline-none"
             type="text"
             placeholder="Product name here..."
             onChange={(e) => setSearchQuerry(e.target.value)}
-          /><Icon className="absolute ml-72 -mt-10 py-0" path={mdiMagnify} size={1} />
+          />
+          <Icon
+            className="absolute ml-72 -mt-10 py-0"
+            path={mdiMagnify}
+            size={1}
+          />
 
           {Array.isArray(filterFunc) && searchQuerry !== ""
             ? filterFunc

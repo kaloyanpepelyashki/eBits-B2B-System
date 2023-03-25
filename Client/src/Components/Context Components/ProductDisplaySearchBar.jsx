@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 
 export default React.memo(function ProductSearchBar({ product, addProduct }) {
-  const [productVariations, setProductVariations] = useState([]);
   const [productWithVar, setProductWithVar] = useState({});
   const [variationAndPrice, setVariationAndPrice] = useState([]);
 
@@ -185,49 +184,70 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
   // }, []);
   // console.log(variationAndPrice);
   //
+  // useEffect(() => {
+  //   const varPostRequest = async () => {
+  //     try {
+  //       const response = await fetch("http://65.109.137.46:5000/apivar", {
+  //         method: "POST",
+  //         headers: {
+  //           Accept: "application/json",
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           ProductIndex: product.ProductIndex,
+  //         }),
+  //       });
+  //       const data = await response.json();
+  //       if (data.length > 0) {
+  //         const response = await fetch("http://65.109.137.46:5000/pyth", {
+  //           method: "POST",
+  //           headers: {
+  //             Accept: "application/json",
+  //             "Content-Type": "application/json",
+  //           },
+  //           body: JSON.stringify({
+  //             ProductIndex: product.ProductIndex,
+  //             Amount: 1,
+  //           }),
+  //         });
+  //         const priceData = await response.json();
+  //         console.log(priceData);
+  //         if (priceData.length > 0) {
+  //           const variationObject = data.map((variation, index) => {
+  //             return {
+  //               ProductIndex: variation.ProductIndex,
+  //               VariationName: variation.ProductName,
+  //               VariationID: variation.VariationID,
+  //               VariationPrice: priceData[index],
+  //             };
+  //           });
+  //           setVariationAndPrice(variationObject);
+  //         }
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   varPostRequest();
+  // }, []);
+
   useEffect(() => {
+    //Fetching the variations and the prices for a product
     const varPostRequest = async () => {
-      try {
-        const response = await fetch("http://65.109.137.46:5000/apivar", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ProductIndex: product.ProductIndex,
-          }),
-        });
-        const data = await response.json();
-        if (data.length > 0) {
-          const response = await fetch("http://65.109.137.46:5000/pyth", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              ProductIndex: product.ProductIndex,
-              Amount: 1,
-            }),
-          });
-          const priceData = await response.json();
-          console.log(priceData);
-          if (priceData.length > 0) {
-            const variationObject = data.map((variation, index) => {
-              return {
-                ProductIndex: variation.ProductIndex,
-                VariationName: variation.ProductName,
-                VariationID: variation.VariationID,
-                VariationPrice: priceData[index],
-              };
-            });
-            setVariationAndPrice(variationObject);
-          }
-        }
-      } catch (err) {
-        console.log(err);
-      }
+      const response = await fetch("http://65.109.137.46:5000/apivar", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        //Sending a post request with the productIndex as body content
+        body: JSON.stringify({
+          ProductIndex: product.ProductIndex,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      setVariationAndPrice(data);
     };
     varPostRequest();
   }, []);
@@ -264,7 +284,11 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
     //Checks if there is a variation
     //Checks if there is a VariationName in the productWith var object
     //And checks if there are any variations in the list of variations
-    if (!productWithVar.VariationName && variationAndPrice.length > 0) {
+    if (
+      !productWithVar.VariationName &&
+      (!productWithVar.Price || productWithVar.Price === 0) &&
+      productWithVar.VariationName !== "select a variation"
+    ) {
       //If there is no selected variation and there are variations in the list, it pushes a window alert
       window.alert("Please selct a variation");
     } else {
@@ -279,24 +303,30 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
             handleVariationChoice(e);
           }}
           className="product-search-bar-select text-VariationTitle"
-          defaultValue={product.ProductName}
         >
-          <option data-variationid={0} value={product.ProductName}>
-            {product.ProductName}
-          </option>
-          {variationAndPrice.length !== 0
-            ? variationAndPrice.map((variation) => (
-                <option
-                  key={variation.VariationID}
-                  value={variation.VariationName}
-                  data-variationid={variation.VariationID}
-                  data-variationprice={variation.VariationPrice}
-                >
-                  {variation.VariationName}&nbsp; &nbsp; - &nbsp; &nbsp;
-                  {variation.VariationPrice} DKK
-                </option>
-              ))
-            : "Nothing to show"}
+          <option>select a variation</option>
+          {variationAndPrice.length !== 0 ? (
+            variationAndPrice.map((variation) => (
+              <option
+                key={variation.VariationID}
+                value={variation.ProductName}
+                data-variationid={variation.VariationID}
+                data-variationprice={variation.Price}
+              >
+                {variation.ProductName}&nbsp; &nbsp; - &nbsp; &nbsp;
+                {variation.Price} DKK
+              </option>
+            ))
+          ) : (
+            <option
+              data-variationid={0}
+              value={product.ProductName}
+              data-variationprice={product.Price}
+            >
+              {product.ProductName} &nbsp; &nbsp; - &nbsp; &nbsp;
+              {product.Price} DKK
+            </option>
+          )}
         </select>
         <div
           className="product-search-bar-clickable"

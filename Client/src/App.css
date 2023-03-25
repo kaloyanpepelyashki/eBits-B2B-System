@@ -285,29 +285,93 @@ img {
      
            /* <--- --- | PAGE LEFT SIDE - FINAL CHECK COMPONENT STYLING | --- ---> */       
     
+    .page-left-side-contacts-top-section {
+      width: 100%;
+      height: 58px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+     }
+     .page-left-side-contacts-add-more-holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     }      
     .final-check-product-table {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       padding: 10px 6px;
+    }
+    .final-check-product-table-row .final-check-product-table-head {
+      height: 45px;
+      padding: 7px 2px;
+    }
+    .final-check-product-table-row  {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 7px 2px;
+      border-bottom: 1.3px solid #B5B5B4;
     }
     .final-check-product-table-I-tag-field {
       width: 56px;
-      margin-right: 9px;
+      
     }
     .final-check-product-table-name-field {
       width: 385px;
-      margin-right: 9px;
+      
       text-align: left;
     }
     .final-check-product-table-total-field {
-      width: 76px;
-      margin-right: 9px;
+      width: 116px;
+      padding-left: 14px;
       text-align: left;
     }
     .final-check-product-table-amount-field {
-      width: 113px;
-      margin-right: 9px;
+      width: 123px;
       text-align: left;
+      padding-left: 16px;
+    }
+    .final-check-product-table-amount-field-flex {
+      display: flex;
+    }
+    
+        /* <--- --- | PAGE LEFT SIDE POP-UP MESSAGE COMPONENT STYLING | --- ---> */ 
+        
+    .final-check-page-pop-up-wrapper {
+      width: 700px;
+      height: 320px;
+      position: absolute;
+      top: 38%;
+      left: 36%;
+      background-color: red;
+      padding: 30px 50px;
+    }
+    .final-check-pop-up-top-section {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+           /* <--- --- | FINAL CHECK ITEM DISPLAY COMPONENT STYLING | --- ---> */      
+    .final-check-product-table-amount-btn {
+      width: 23px;
+      height: 21px;
+      border: 1px solid black;
+      align-content: center;
+    }
+    .final-check-product-table-price {
+      width: 32px;
+      height: 21.18px;
+      text-align: center;
+      align-content: center;
+    }
+    .trash-icon:hover {
+      cursor: pointer;
     }
 
+    
 
 
 

@@ -16,7 +16,7 @@ import { ContactInfoContProvider } from "./Components/Context Components/Contact
 //Importing Components
 import HeaderBar from "./Components/Global Components/HeaderBar";
 
-//Importing page components
+//Importing Page - components
 import ContactInfoPage from "./Pages/Global pages/ContactsPage";
 import LandingPage from "./Pages/Global pages/LandingPage";
 import TypeOfOrderPage from "./Pages/Global pages/TypeOfOrderPage";
@@ -62,7 +62,10 @@ function App() {
                 element={<LandingPage productsList={productsList} />}
               />
               <Route path="/orderType" element={<TypeOfOrderPage />} />
-              <Route path="/finalChackPage" element={<FinalCheckPage />} />
+              <Route
+                path="/finalChackPage"
+                element={<FinalCheckPage productList={productsList} />}
+              />
               {/* <==== ! | Separate products routes | ! ====>  */}
               <Route
                 path="/productSelectionPageSP"

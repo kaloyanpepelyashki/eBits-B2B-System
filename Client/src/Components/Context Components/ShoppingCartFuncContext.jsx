@@ -95,6 +95,7 @@ export const ShoppingCartProvider = (props) => {
         );
       }
     },
+
     increaseProductAmount: (product) => {
       const doesExist = cartProducts.find(
         (item) =>
@@ -163,15 +164,15 @@ export const ShoppingCartProvider = (props) => {
         );
       }
     },
-    //The function that handles the page transfer, when data needs to be stored in the session storage
-    handlePageTransfer: () => {
-      const cartProductsFiltered = cartProducts.filter(
-        (product) => product.qty > 0
-      );
-      const cartProductsJSON = JSON.stringify(cartProductsFiltered);
-      sessionStorage.setItem("cartProducts", cartProductsJSON);
-      console.log(sessionStorage);
-    },
+    // //The function that handles the page transfer, when data needs to be stored in the session storage
+    // handlePageTransfer: () => {
+    //   const cartProductsFiltered = cartProducts.filter(
+    //     (product) => product.qty > 0
+    //   );
+    //   const cartProductsJSON = JSON.stringify(cartProductsFiltered);
+    //   sessionStorage.setItem("cartProducts", cartProductsJSON);
+    //   console.log(sessionStorage);
+    // },
   };
 
   return (

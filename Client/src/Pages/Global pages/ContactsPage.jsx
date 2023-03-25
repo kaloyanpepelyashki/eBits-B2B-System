@@ -1,15 +1,19 @@
+//Importin React hooks
 import { useContext } from "react";
-import { useLocation, useNavigate } from "react-router";
+
+//Importing React-router elements and components
+import { useNavigate } from "react-router";
+
 import { ContactsInformationFunc } from "../../Components/Context Components/ContactsInformationContext";
+
+//Importing Components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 import PageLeftSideStaticContacts from "../../Components/Global Components/PageLeftSideStaticContacts";
 
 export default function ContactInfoPage() {
   const { contactInfoState } = useContext(ContactsInformationFunc);
-  const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location.cartProducts);
   const handleTransfer = () => {
     if (
       contactInfoState.name &&
@@ -17,6 +21,8 @@ export default function ContactInfoPage() {
       contactInfoState.email &&
       contactInfoState.deliveryDate
     ) {
+      //Navigating to next page
+      //Sending the data to the next page using reacr Location
       navigate("/finalChackPage", {
         state: {
           name: contactInfoState.name,
