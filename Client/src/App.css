@@ -239,8 +239,14 @@ img {
   
 
     
-      /***  <==== === ! | CONTACTS PAGE | ! === ====>  ***/
-    
+    /***  <==== === ! | CONTACTS PAGE | ! === ====>  ***/
+
+    .contact-info-page-widgets-holder {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 25px;
+    }
+
 
           /* <--- --- | PAGE LEFT SIDE CONTACTS COMPONENT STYLING | --- ---> */
     

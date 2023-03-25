@@ -1,10 +1,13 @@
 //Importin React hooks
 import { useContext, useState } from "react";
 
+//Importing Material design and material design components
 import Icon from "@mdi/react";
 import { mdiPlus, mdiClose } from "@mdi/js";
 
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
+
+//Importing Components
 import ProductDisplayFinalCheckPage from "../Small Components/ProductDisplayFinalCheckPage";
 import PopUpMessage from "../Small Components/FinalCheckPagePop-up";
 

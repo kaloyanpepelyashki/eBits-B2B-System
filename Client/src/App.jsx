@@ -10,6 +10,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 //Importing styling sheet
 import "./App.css";
+
+//Importing Context components
 import { ShoppingCartProvider } from "./Components/Context Components/ShoppingCartFuncContext";
 import { ContactInfoContProvider } from "./Components/Context Components/ContactsInformationContext";
 

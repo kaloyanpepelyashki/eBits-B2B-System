@@ -1,7 +1,12 @@
+//Importin React hooks
+import { useState } from "react";
+
+//Importing Material design and material design components
 import Icon from "@mdi/react";
 import { mdiMagnify } from "@mdi/js";
+
+//Importing Components
 import ProductDisplaySearchBar from "../Context Components/ProductDisplaySearchBar";
-import { useState } from "react";
 
 export default function PopUpMessage(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");

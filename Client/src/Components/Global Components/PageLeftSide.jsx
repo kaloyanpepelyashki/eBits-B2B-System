@@ -1,16 +1,17 @@
 //Importin React hooks
 import { useContext, useState } from "react";
 
-//Importing MUI elements, dependencies and components
+//Importing React Material design and material design components
 import Icon from "@mdi/react";
 import { mdiMagnify } from "@mdi/js";
 import { color } from "@mui/system";
 import { purple } from "@mui/material/colors";
 
-//Importing Components
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
+
+//Importing Components
 import ProductSearchBar from "../Context Components/ProductDisplaySearchBar";
-import { ShoppingCartProvider } from "../Context Components/ShoppingCartFuncContext";
+
 import BasketProductsDisplay from "../Small Components/BasketItemsDisplay";
 
 export default function PageLeftSide(props) {

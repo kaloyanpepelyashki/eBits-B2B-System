@@ -1,8 +1,10 @@
 //Importin React hooks
 import { useContext } from "react";
+
+//Importing React-router elements and components
 import { useNavigate } from "react-router";
 
-//Importing contecxt components
+//Importing Context components
 import { ShoppingCartFunc } from "../../Components/Context Components/ShoppingCartFuncContext";
 
 //Importing components
@@ -22,7 +24,11 @@ export default function ProductSelectionPageSP({ productsList }) {
 
   //Initiating the page transfer function
   const handleTransfer = () => {
-    navigate("/contactInfoPage");
+    navigate("/contactInfoPage", {
+      state: {
+        contactsPageType: "separateProductsBuy",
+      },
+    });
   };
 
   return (
