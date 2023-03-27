@@ -154,6 +154,94 @@ img {
         padding: 10px;
         
       }
+      
+
+          /* <--- --- |SEPARATE PRODUCTS RECEIPT COMPONENT STYLING | --- ---> */
+      .separate-product-receipt-wrapper {
+        width: 345px;
+        height: 525px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 50px 0px 10px;
+        text-align: center;
+      }
+      .product-receipt-products-display-section {
+        width: 340px;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     
+      }
+      .products-receipt-products-holder {
+        width: 340px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 8px;
+        overflow-y: scroll;
+    
+      }
+
+               /* <--- --- |PRODUCT DISPLAY IN RECEIPT COMPONENT STYLING | --- ---> */    
+      .product-display-receipt-wrapper {
+        display: flex;
+        align-items: center;
+        width: 310px;
+        height: 40px;
+        display: flex;
+        margin-bottom: 9px;
+      }
+      .product-display-receipt-delete {
+        border-right: 0.2px solid black;
+        padding-right: 8px;
+      }
+      .product-display-receipt-main-cont {
+        height: 40px;
+        display: flex;
+        align-items: flex-start;
+        margin-left: 9px;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
+      }
+      .product-display-receipt-name {
+        width: 152px;
+        height: 32px;
+        max-width: 175px;
+        min-width: 175px;
+        text-align: left;
+      }
+      .product-display-receipt-price {
+        margin-left: 9px;
+      }
+      .product-display-receipt-amount {
+        width: 24px;
+        height: 17px;
+        border: 0.5px solid black;
+        border-radius: 3px;
+        align-content: center;
+        margin-left: 13px;
+      }
+
+      
+          /* <--- --- |KIT RECEIPT BOTTOM SECTION COMPONENT STYLING | --- ---> */
+      .kit-receipt-bottom-price-details-holder {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 15px;
+        padding-left: 15px;
+      }
+      .kit-price-details-total-price {
+        width: 100%;
+        text-align: left;
+      }
+
+
+
 
   /***  <==== === ! | LANDING PAGE | ! === ====>  ***/
 

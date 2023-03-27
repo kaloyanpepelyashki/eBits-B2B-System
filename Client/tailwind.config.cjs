@@ -22,6 +22,7 @@ module.exports = {
       ProductTitleMedium: "13pt",
       ProductAmountIndex: "12pt",
       VariationTitle: "7pt",
+      VariationTitleSmall: "5.4pt",
       ReceiptPriceL: "38pt",
       ReceiptPriceM: "30pt",
     },

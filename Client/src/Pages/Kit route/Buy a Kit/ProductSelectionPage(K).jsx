@@ -9,6 +9,8 @@ import { ShoppingCartFunc } from "../../../Components/Context Components/Shoppin
 
 //Importing Components
 import ButtonsHolder from "../../../Components/Global Components/ButtonsHolderComponent";
+import KitReceiptBottomSection from "../../../Components/Global Components/KitBuyReceiptBottomSection";
+import KitReceipt from "../../../Components/Global Components/KitReceipt";
 import PageLeftSide from "../../../Components/Global Components/PageLeftSide";
 import PageLeftTopSection from "../../../Components/Global Components/PageLeftSideTopSection";
 
@@ -36,6 +38,9 @@ export default function ProductSelectionPageKB({ productsList }) {
             >
               <PageLeftTopSection />
             </PageLeftSide>
+            <KitReceipt globalPrices={globalPrices}>
+              <KitReceiptBottomSection />
+            </KitReceipt>
           </div>
         </div>
         <ButtonsHolder handleTransfer={handleTransfer} />
