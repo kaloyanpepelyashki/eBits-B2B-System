@@ -60,21 +60,21 @@ export default function PageLeftSide(props) {
   return (
     <>
       <div
-        className="page-left-side-wrapper block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+        className="page-left-side-wrapper block px-6 py-12 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
             focus:outline-none relative"
       >
         {props.children}
         <div className="page-left-side-main-section">
           {/* <= //The input field the user types in */}
           <input
-            className="page-left-side-search-bar block px-4 py-2 pr-24 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+            className="page-left-side-search-bar block px-4 py-2 pr-80 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
             focus:outline-none"
             type="text"
             placeholder="Product name here..."
             onChange={(e) => setSearchQuerry(e.target.value)}
           />
           <Icon
-            className="absolute ml-72 -mt-10 py-0"
+            className="icon absolute -mt-10 py-0"
             path={mdiMagnify}
             size={1}
           />

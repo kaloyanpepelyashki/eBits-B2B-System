@@ -11,6 +11,7 @@ module.exports = {
       "txt-grey-color": "#959595",
       "txt-black-color": "#000000",
       "txt-white-color": "#FFFFFF",
+      "selector-color": "#FBB124",
     },
     fontSize: {
       TextBig: "25pt",
