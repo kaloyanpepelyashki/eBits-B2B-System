@@ -6,7 +6,7 @@ import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext"
 
 import ProductDisplayReceipt from "./ProductDisplayReceipt";
 
-export default function SeparateProductsReceipt(props) {
+export default function KitReceipt(props) {
   const { globalPrices } = props;
   const {
     cartProducts,
@@ -18,11 +18,8 @@ export default function SeparateProductsReceipt(props) {
   };
   return (
     <>
-      <div
-        className="separate-product-receipt-wrapper block px-6 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
-            focus:outline-none relative"
-      >
-        <h1 className="text-total text-TextMid text-primary-color">Total</h1>
+      <div className="separate-product-receipt-wrapper block px-6 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl focus:outline-none relative">
+        <h1 className="text-total text-TextMid text-primary-color">Kit</h1>
         <p className="ReceiptPriceL text-TextBig text-primary-color -mb-6">
           {globalPrices / 2}
         </p>
@@ -34,7 +31,7 @@ export default function SeparateProductsReceipt(props) {
           <h1 className="text-cardText text-primary-color mt-4 mr-40">
             Products:
           </h1>
-          <div className="seprate-products-receipt-products-holder">
+          <div className="products-receipt-products-holder">
             {cartProducts.map((product) =>
               product.qty && product.variationQty !== 0 ? (
                 <ProductDisplayReceipt
@@ -47,7 +44,9 @@ export default function SeparateProductsReceipt(props) {
               )
             )}
           </div>
+          <div className="line line-3 mt-1.5"></div>
         </div>
+        {props.children}
       </div>
     </>
   );
