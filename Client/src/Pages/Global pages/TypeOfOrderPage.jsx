@@ -16,8 +16,6 @@ export default function TypeOfOrderPage() {
   const [routeChoice, setRouteChoice] = useState(0);
   const [nextRoute, setNextRoute] = useState("");
 
-  console.log(routeChoice);
-
   const nextDest =
     routeChoice == 1
       ? "/buyOrCreate"

@@ -191,7 +191,7 @@ img {
         height: 80%;
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
      
       }
       .products-receipt-products-holder {

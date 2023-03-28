@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from "react-router";
 
 //Importing Context components
 import { ContactsInformationFunc } from "../../Components/Context Components/ContactsInformationContext";
-import { ShoppingCartFunc } from "../../Components/Context Components/ShoppingCartFuncContext";
 
 //Importing Components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
@@ -17,12 +16,9 @@ import SeparateProductsReceipt from "../../Components/Global Components/Separate
 
 export default function ContactInfoPage() {
   const { contactInfoState } = useContext(ContactsInformationFunc);
-  const { globalPrices } = useContext(ShoppingCartFunc);
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  console.log(location.state.contactsPageType);
 
   const handleTransfer = () => {
     if (
@@ -45,6 +41,7 @@ export default function ContactInfoPage() {
           town: contactInfoState.town,
           deliveryDate: contactInfoState.deliveryDate,
           notes: contactInfoState.notes,
+          contactsPageType: "separateProductsBuy",
         },
       });
     } else {
@@ -58,7 +55,7 @@ export default function ContactInfoPage() {
           <div className="contact-info-page-widgets-holder">
             <PageLeftSideStaticContacts />
             {location.state.contactsPageType === "separateProductsBuy" ? (
-              <SeparateProductsReceipt globalPrices={globalPrices} />
+              <SeparateProductsReceipt />
             ) : (
               <KitReceipt>
                 <KitReceiptBottomSection />
