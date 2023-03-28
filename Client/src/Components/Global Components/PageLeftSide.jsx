@@ -60,7 +60,7 @@ export default function PageLeftSide(props) {
   return (
     <>
       <div
-        className="page-left-side-wrapper block px-6 py-12 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+        className="page-left-side-wrapper block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
             focus:outline-none relative"
       >
         {props.children}
@@ -92,8 +92,8 @@ export default function PageLeftSide(props) {
             : " "}
           <div className="line line-2"></div>
         </div>
-        <div className="page-left-side-bottom-section">
-          <h2 className="text-cardText text-primary-color">Your products :</h2>
+          <h2 className="text-cardText font-bold text-primary-color">Your products :</h2>
+          <div className="page-left-side-bottom-section scroll-section">
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
               <BasketProductsDisplay
