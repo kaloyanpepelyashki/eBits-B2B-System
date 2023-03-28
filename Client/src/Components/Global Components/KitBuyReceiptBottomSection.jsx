@@ -16,7 +16,7 @@ export default function KitReceiptBottomSection() {
             : 0}
         </p>
         <p className="kit-price-details-total-price ReceiptPriceL text-TextBig text-primary-color -mb-6">
-          {kitAmount != 0 ? kitAmount * total.toFixed(2) : 0} &nbsp; DKK
+          {kitAmount != 0 ? (kitAmount * total).toFixed(2) : 0} &nbsp; DKK
         </p>
       </div>
     </>
