@@ -357,23 +357,35 @@ img {
           /* <--- --- | PAGE LEFT SIDE CONTACTS COMPONENT STYLING | --- ---> */
     
     .page-left-side-contacts-wrapper {
+      width: 775px;
+      height: 525px;
       display: flex;
       flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 40px 70px;
+      margin: 20px 10px 3px 50px;
+    }
+    .contacts-page-heading {
+      margin-bottom: 10px
     }
     .page-left-side-contacts-column {
       width: 327px;
     }
     .page-left-side-contacts-left-column {
+      height: 70%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-
+      justify-content: space-between;
     }
+
     .personal-contact-info-block {
       width: 100%;
       display: flex;  
       flex-direction: column;
       align-items: flex-start;
+      margin-bottom: 55px;
     }
     .address-contact-info-block {
       width: 100%;
@@ -381,9 +393,20 @@ img {
     }
 
     .contacts-page-small-inputs-holder {
+      width: 275px;
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-top: 5px;
+    }
+    .contacts-page-input-field {
+      width: 275px;
+      height: 32px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    .contacts-page-input-field-small {
+      width: 118px;
     }
     .address-contact-info-block {
       display: flex;

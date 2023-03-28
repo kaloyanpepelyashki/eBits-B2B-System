@@ -37,10 +37,12 @@ export default function PageLeftSideStaticContacts() {
   };
   return (
     <>
-      <div className="page-left-side-contacts-wrapper">
+      <div
+        className="page-left-side-contacts-wrapper bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            focus:outline-none"
+      >
         {/* <==== | LEFT COLUMN | ====>  */}
-        <div className="page-left-side-contacts-column page-left-side-contacts-left-column block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
-            focus:outline-none">
+        <div className="page-left-side-contacts-column page-left-side-contacts-left-column">
           {/* <--- | PERSONAL CONTACT INFO | ---> */}
           <div className="personal-contact-info-block">
             <p className="contacts-page-heading text-primary-color  text-HeadingSmall">
@@ -72,7 +74,7 @@ export default function PageLeftSideStaticContacts() {
               <input
                 inputMode="numeric"
                 pattern="[0-9]*"
-                className="contacts-page-input-field-small"
+                className="contacts-page-input-field-small ml-10"
                 value={contactInfoState.phone}
                 placeholder="Phone"
                 onChange={handlePhoneChange}
@@ -109,7 +111,7 @@ export default function PageLeftSideStaticContacts() {
               />
               <input
                 type="text"
-                className="contacts-page-input-field-small"
+                className="contacts-page-input-field-small ml-10"
                 value={contactInfoState.town}
                 placeholder="Town"
                 onChange={handleTownChange}
