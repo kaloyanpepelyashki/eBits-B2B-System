@@ -102,19 +102,23 @@ img {
    }
 
   .line {
-    width: 800px;
+    width: 725px;
     height: 2px;
     background-color: grey;
   }
 
-    .line-2 {
-      margin-top: 50px;
-      margin-bottom: 20px;
-    }
+  .line-2{
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
 
-    .page-left-side-search-bar {
-      margin: 10px 0px;
-    }
+  .page-left-side-search-bar {
+    margin: 10px 0px;
+  }
+
+  .icon{
+    margin-left: 530px;
+  }
 
 
         /* <--- --- | PAGE LEFT SIDE KIT TOP SECTION COMPONENT STYLING | --- ---> */
@@ -154,29 +158,28 @@ img {
         padding: 5px 0px 0px 10px;
       }
       .product-search-bar-outter-wrapper:hover {
-        cursor: pointer;
-        background-color: #d4d3d3;
+        background-color: #ffffff;
+        border-radius: round;
       }
 
       .product-search-bar-select {
-        width: 72px;
-        height: 25px;
+        width: 125px;
+        height: 30px;
+        cursor: pointer;
+        margin-left: -15px;
+        border-radius: round;
       }
-      .product-search-bar-clickable {
-        width: 90%;
-        height: 100%;
-        margin-left: 20px;  
-      }
+      
       .product-search-bar-clickable:hover {
         cursor: pointer;
-        background-color: red;
+        background-color: rgb(233, 233, 233); 
       }
       .product-search-bar-product-title {
         text-align: right;    
         margin: auto;
         padding: 10px;
-        
-      }
+
+        }
       
 
           /* <--- --- |SEPARATE PRODUCTS RECEIPT COMPONENT STYLING | --- ---> */
@@ -261,8 +264,6 @@ img {
       .kit-price-details-total-price {
         text-align: left;
       }
-
-
 
 
   /***  <==== === ! | LANDING PAGE | ! === ====>  ***/

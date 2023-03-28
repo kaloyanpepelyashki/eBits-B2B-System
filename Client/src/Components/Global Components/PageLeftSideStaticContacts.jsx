@@ -39,7 +39,8 @@ export default function PageLeftSideStaticContacts() {
     <>
       <div className="page-left-side-contacts-wrapper">
         {/* <==== | LEFT COLUMN | ====>  */}
-        <div className="page-left-side-contacts-column page-left-side-contacts-left-column">
+        <div className="page-left-side-contacts-column page-left-side-contacts-left-column block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            focus:outline-none">
           {/* <--- | PERSONAL CONTACT INFO | ---> */}
           <div className="personal-contact-info-block">
             <p className="contacts-page-heading text-primary-color  text-HeadingSmall">
@@ -131,7 +132,7 @@ export default function PageLeftSideStaticContacts() {
             />
           </div>
           <div className="notes-info-block">
-            <p className="contacts-page-heading text-primary-color  text-HeadingSmall">
+            <p className="contacts-page-heading text-primary-color text-HeadingSmall">
               Notes
             </p>
             <textarea

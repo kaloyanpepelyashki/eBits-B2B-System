@@ -79,33 +79,27 @@ export default function BasketProductsDisplay(props) {
   console.log(productPrice);
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <h2>
-          {product.productName} / {product.VariationName}
+      <div className="block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            focus:outline-none">
+
+        <h2 className="inline-block font-bold text-ProductTitleSmall">
+          {product.productName}<br/>{product.VariationName}
         </h2>
+
         <button
-          style={{
-            width: "33px",
-            marginLeft: "10px",
-            border: "1px solid black",
-            padding: "5px 10px",
-          }}
-          onClick={() => {
+           className="inline-block ProductTitleMedium ml-12 mr-2"
+           onClick={() => {
             handleIncreaseProductAmount(product);
           }}
         >
           +
         </button>
-        <h2 style={{ marginLeft: "10px" }}>
+
+        <h2 className="inline-block mr-2">
           <b>{product.qty}</b>
         </h2>
         <button
-          style={{
-            width: "33px",
-            marginLeft: "10px",
-            border: "1px solid black",
-            padding: "5px 10px",
-          }}
+          className="inline-block"
           onClick={() => {
             handleReduceProductAmount(product);
           }}
@@ -113,15 +107,15 @@ export default function BasketProductsDisplay(props) {
           -
         </button>
         <button
-          style={{ marginLeft: "10px", border: "1px solid black" }}
+          className="inline-block ml-5"
           onClick={() => {
             handleRemoveProduct(product);
           }}
         >
           Remove
         </button>
-        <p style={{ marginLeft: "20px" }}>
-          {(Number(product.Price) * Number(product.qty)).toFixed(2)}
+        <p className="inline-block ml-5 text-ProductTitleMedium font-extrabold">
+          {(Number(product.Price) * Number(product.qty)).toFixed(2)} Dkk
         </p>
       </div>
     </>
