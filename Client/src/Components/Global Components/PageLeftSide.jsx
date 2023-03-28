@@ -93,7 +93,7 @@ export default function PageLeftSide(props) {
           <div className="line line-2"></div>
         </div>
         <div className="page-left-side-bottom-section">
-          <h2 className="text-cardText text-primary-color">Your products</h2>
+          <h2 className="text-cardText text-primary-color">Your products :</h2>
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
               <BasketProductsDisplay

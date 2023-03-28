@@ -3,12 +3,19 @@ import Icon from "@mdi/react";
 import { mdiMinus } from "@mdi/js";
 
 export default function ProductDisplayReceipt(props) {
-  const { product } = props;
+  const { product, handleReduceProductAmount } = props;
   return (
     <>
       <div className="product-display-receipt-wrapper">
         <div className="product-display-receipt-delete">
-          <Icon path={mdiMinus} size={0.8} />
+          <Icon
+            className="product-display-receipt-icon-minus"
+            onClick={() => {
+              handleReduceProductAmount(product);
+            }}
+            path={mdiMinus}
+            size={1}
+          />
         </div>
         <div className="product-display-receipt-main-cont">
           <div className="product-display-receipt-name">

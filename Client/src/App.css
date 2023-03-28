@@ -224,6 +224,9 @@ img {
         border-right: 0.2px solid black;
         padding-right: 8px;
       }
+      .product-display-receipt-icon-minus :hover {
+        cursor: pointer;
+      }
       .product-display-receipt-main-cont {
         height: 40px;
         display: flex;
@@ -460,10 +463,12 @@ img {
       width: 700px;
       height: 320px;
       position: absolute;
-      top: 38%;
-      left: 36%;
-      background-color: red;
+      top: 34%;
+      left: 30%;
+      background-color: #ffffff;
+      border: 1px solid black;
       padding: 30px 50px;
+      
     }
     .final-check-pop-up-top-section {
       width: 100%;

@@ -79,16 +79,19 @@ export default function BasketProductsDisplay(props) {
   console.log(productPrice);
   return (
     <>
-      <div className="block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
-            focus:outline-none">
-
+      <div
+        className="block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            focus:outline-none"
+      >
         <h2 className="inline-block font-bold text-ProductTitleSmall">
-          {product.productName}<br/>{product.VariationName}
+          {product.productName}
+          <br />
+          {product.VariationName}
         </h2>
 
         <button
-           className="inline-block ProductTitleMedium ml-12 mr-2"
-           onClick={() => {
+          className="inline-block ProductTitleMedium ml-12 mr-2"
+          onClick={() => {
             handleIncreaseProductAmount(product);
           }}
         >
@@ -105,14 +108,6 @@ export default function BasketProductsDisplay(props) {
           }}
         >
           -
-        </button>
-        <button
-          className="inline-block ml-5"
-          onClick={() => {
-            handleRemoveProduct(product);
-          }}
-        >
-          Remove
         </button>
         <p className="inline-block ml-5 text-ProductTitleMedium font-extrabold">
           {(Number(product.Price) * Number(product.qty)).toFixed(2)} Dkk

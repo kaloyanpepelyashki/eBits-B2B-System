@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 //Importing libraries
-import axios from "axios";
 
 //Importing components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
@@ -53,10 +52,15 @@ export default function LandingPage({ productsList }) {
       <main className="landing-page-content-wrapper page-main-section">
         <div className="landing-page-inner-content">
           <h1 className="landing-page-welcome-header text-TextBig mt-20 mb-10">
-            Before starting your shop journey, do<br/> you want us to send you
+            Before starting your shop journey, do
+            <br /> you want us to send you
             <b className="text-primary-color"> our catalog</b>?
           </h1>
-          {emailValidation ? " " : <p className="email-validation">Please enter a valid email</p>}
+          {emailValidation ? (
+            " "
+          ) : (
+            <p className="email-validation">Please enter a valid email</p>
+          )}
           <input
             className="email-input-field block px-3 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
             focus:outline-none "
@@ -64,7 +68,10 @@ export default function LandingPage({ productsList }) {
             placeholder="Your Email..."
             onChange={(e) => setEmailAddress(e.target.value)}
           />
-          <button onClick={sendMail} className="form-btn bg-primary-color mt-8 py-1 px-6 rounded-sm">
+          <button
+            onClick={sendMail}
+            className="form-btn bg-primary-color mt-8 py-1 px-6 rounded-sm"
+          >
             Send
           </button>
         </div>

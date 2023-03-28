@@ -38,7 +38,7 @@ export default function ProductSelectionPageKB({ productsList }) {
             >
               <PageLeftTopSection />
             </PageLeftSide>
-            <KitReceipt globalPrices={globalPrices}>
+            <KitReceipt>
               <KitReceiptBottomSection />
             </KitReceipt>
           </div>

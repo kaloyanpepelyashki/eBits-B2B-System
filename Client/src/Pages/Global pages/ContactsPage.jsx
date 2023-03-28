@@ -10,6 +10,8 @@ import { ShoppingCartFunc } from "../../Components/Context Components/ShoppingCa
 
 //Importing Components
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
+import KitReceiptBottomSection from "../../Components/Global Components/KitBuyReceiptBottomSection";
+import KitReceipt from "../../Components/Global Components/KitReceipt";
 import PageLeftSideStaticContacts from "../../Components/Global Components/PageLeftSideStaticContacts";
 import SeparateProductsReceipt from "../../Components/Global Components/SeparateProductReceipt";
 
@@ -58,7 +60,9 @@ export default function ContactInfoPage() {
             {location.state.contactsPageType === "separateProductsBuy" ? (
               <SeparateProductsReceipt globalPrices={globalPrices} />
             ) : (
-              <h2>This is for kit</h2>
+              <KitReceipt>
+                <KitReceiptBottomSection />
+              </KitReceipt>
             )}
           </div>
         </div>
