@@ -1,4 +1,4 @@
-//Importing components
+//Importing React hooks
 import { useContext } from "react";
 
 //Importing React-router elements and components

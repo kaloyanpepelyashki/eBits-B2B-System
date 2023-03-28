@@ -13,6 +13,7 @@ module.exports = {
       "txt-white-color": "#FFFFFF",
     },
     fontSize: {
+      TextXL: "34pt",
       TextBig: "25pt",
       TextMid: "20pt",
       GlobalBtnsTxt: "15pt",

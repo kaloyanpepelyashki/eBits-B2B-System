@@ -117,6 +117,29 @@ img {
     }
 
 
+        /* <--- --- | PAGE LEFT SIDE KIT TOP SECTION COMPONENT STYLING | --- ---> */
+    .page-left-side-top-section {
+      width: 80%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page-left-side-top-section-amount-window-holder {
+      width: 160px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .kit-amount-window {
+      width: 64px;
+      height: 35px;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid black;
+    }
+
 
         /* <--- --- | SEARCH BAR PRODUCT DISPLAY COMPONENT STYLING | --- ---> */
 
@@ -236,7 +259,6 @@ img {
         padding-left: 15px;
       }
       .kit-price-details-total-price {
-        width: 100%;
         text-align: left;
       }
 

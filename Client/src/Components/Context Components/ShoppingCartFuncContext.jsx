@@ -6,6 +6,7 @@ export const ShoppingCartFunc = createContext();
 export const ShoppingCartProvider = (props) => {
   const [cartProducts, setCartProducts] = useState([]);
   const [globalPrices, setGlobalPrices] = useState(0);
+  const [kitAmount, setKitAmount] = useState(0);
 
   const funcs = {
     addProduct: (product) => {
@@ -183,6 +184,8 @@ export const ShoppingCartProvider = (props) => {
         setCartProducts,
         globalPrices,
         setGlobalPrices,
+        kitAmount,
+        setKitAmount,
       }}
     >
       {props.children}
