@@ -26,7 +26,7 @@ export default function PopUpMessage(props) {
 
   return toggleUp ? (
     <>
-      <div className="final-check-page-pop-up-wrapper shadow-xl">
+      <div className="final-check-page-pop-up-wrapper bg-white shadow-xl">
         <div className="final-check-pop-up-inner-content">
           <div className="final-check-pop-up-top-section">{props.children}</div>
           <div className="final-check-pop-up-main-section">

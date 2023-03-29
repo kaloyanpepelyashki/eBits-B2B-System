@@ -1,7 +1,7 @@
 //Importing React hooks
 import React, { useState, useEffect } from "react";
-import Icon from '@mdi/react';
-import { mdiInformationOutline } from '@mdi/js';
+import Icon from "@mdi/react";
+import { mdiInformationOutline } from "@mdi/js";
 
 export default React.memo(function ProductSearchBar({ product, addProduct }) {
   const [productWithVar, setProductWithVar] = useState({});
@@ -248,7 +248,6 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
         }),
       });
       const data = await response.json();
-      console.log(data);
       setVariationAndPrice(data);
     };
     varPostRequest();
@@ -299,8 +298,10 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
   };
   return (
     <>
-      <div className="product-search-bar-outter-wrapper px-6 py-4 bg-white border-white border-slate-300 border-round text-sm shadow-sm
-            focus:outline-none">
+      <div
+        className="product-search-bar-outter-wrapper px-6 py-4 bg-white border-white border-slate-300 border-round text-sm shadow-sm
+            focus:outline-none"
+      >
         <select
           onChange={(e) => {
             handleVariationChoice(e);
@@ -332,7 +333,7 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
           )}
         </select>
 
-        <div 
+        <div
           className="product-search-bar-clickable rounded-2xl"
           onClick={() => {
             handleChoiceValidation();

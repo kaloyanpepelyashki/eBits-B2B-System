@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 
 export default function BasketProductsDisplay(props) {
-  const [productPrice, setProductPrice] = useState(0);
   const {
     product,
     handleIncreaseProductAmount,
     handleReduceProductAmount,
     handleRemoveProduct,
-    globalPrices,
     setGlobalPrices,
   } = props;
 
@@ -67,53 +65,48 @@ export default function BasketProductsDisplay(props) {
   //   sendPostRequestPrice();
   // }, [product]);
 
-  useEffect(() => {
-    setGlobalPrices((prevPrice) => {
-      return Number(
-        prevPrice +
-          Number((Number(product.Price) * Number(product.qty)).toFixed(2))
-      );
-    });
-  }, [product.qty, product.price]);
-
-  console.log(productPrice);
   return (
-    
-     <div className="w-full">
-     <div className="block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md 
-     focus:outline-none justify-between">
-     
-    
-     <div className="flex items-center">
+    <div className="w-full">
+      <div
+        className="block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md 
+     focus:outline-none justify-between"
+      >
+        <div className="flex items-center">
+          <div className="flex justify-start">
+            <h2 className="inline-block font-bold text-ProductTitleSmall">
+              {product.productName}
+              <br />
+              {product.VariationName}
+            </h2>
+          </div>
 
-     <div className="flex justify-start">
-      <h2 className="inline-block font-bold text-ProductTitleSmall">
-        {product.productName}
-      <br />
-        {product.VariationName}
-        </h2>
-    </div>
-    
-    <div className="flex justify-end ml-auto">
+          <div className="flex justify-end ml-auto">
+            <button
+              className="inline-block static font-bold mt-1 mx-2 border border-solid px-2 -ml-2 -mr-2"
+              onClick={() => {
+                handleIncreaseProductAmount(product);
+              }}
+            >
+              +
+            </button>
 
-          <button className="inline-block static font-bold mt-1 mx-2 border border-solid px-2 -ml-2 -mr-2" 
-           onClick={() => { handleIncreaseProductAmount(product); }}>
-            +
-          </button>
+            <h2 className="inline-block mt-1 mx-2 border border-solid px-2 mr-2">
+              <b>{product.qty}</b>
+            </h2>
 
-          <h2 className="inline-block mt-1 mx-2 border border-solid px-2 mr-2">
-            <b>{product.qty}</b>
-          </h2>
+            <button
+              className="inline-block font-bold mt-1 mx-2 border border-solid px-2 -ml-2 mr-10"
+              onClick={() => {
+                handleReduceProductAmount(product);
+              }}
+            >
+              -
+            </button>
 
-          <button className="inline-block font-bold mt-1 mx-2 border border-solid px-2 -ml-2 mr-10" 
-          onClick={() => { handleReduceProductAmount(product); }}>
-            -
-          </button>
-
-          <p className="inline-block text-ProductTitleMedium font-extrabold space space-x-1">
-            {(Number(product.Price) * Number(product.qty)).toFixed(2)} 
-            &nbsp;Dkk
-          </p>
+            <p className="inline-block text-ProductTitleMedium font-extrabold space space-x-1">
+              {(Number(product.Price) * Number(product.qty)).toFixed(2)}
+              &nbsp;Dkk
+            </p>
           </div>
         </div>
       </div>

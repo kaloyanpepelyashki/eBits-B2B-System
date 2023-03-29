@@ -12,6 +12,9 @@ import ButtonsHolder from "../../Components/Global Components/ButtonsHolderCompo
 import PageLeftSideFinalCheckPage from "../../Components/Global Components/PageLeftSideFinalCheckPage";
 
 import axios from "axios";
+import KitReceipt from "../../Components/Global Components/KitReceipt";
+import KitReceiptBottomSection from "../../Components/Global Components/KitBuyReceiptBottomSection";
+import SeparateProductsReceipt from "../../Components/Global Components/SeparateProductReceipt";
 
 export default function FinalCheckPage(props) {
   const location = useLocation();
@@ -47,6 +50,13 @@ export default function FinalCheckPage(props) {
               productList={productList}
               cartProducts={cartProducts}
             />
+            {location.state.contactsPageType === "separateProductsBuy" ? (
+              <SeparateProductsReceipt />
+            ) : (
+              <KitReceipt>
+                <KitReceiptBottomSection />
+              </KitReceipt>
+            )}
           </div>
         </div>
         <ButtonsHolder handleTransfer={sendQuery} />

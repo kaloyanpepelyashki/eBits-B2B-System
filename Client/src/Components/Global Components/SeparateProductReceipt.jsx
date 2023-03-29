@@ -11,15 +11,12 @@ export default function SeparateProductsReceipt(props) {
   const {
     cartProducts,
     funcs: { reduceProductAmount },
+    total,
   } = useContext(ShoppingCartFunc);
 
   const handleReduceProductAmount = (product) => {
     reduceProductAmount(product);
   };
-
-  let total = 0;
-  cartProducts.map((product) => (total = total + product.qty * product.Price));
-  console.log(total);
   return (
     <>
       <div
@@ -28,7 +25,7 @@ export default function SeparateProductsReceipt(props) {
       >
         <h1 className="text-total text-TextMid text-primary-color">Total</h1>
         <p className="ReceiptPriceL text-TextBig text-primary-color -mb-6">
-          {total}
+          {total.toFixed(2)}
         </p>
         <p className="text-primary-color font-bold text-ProductTitleSmall mr-56">
           Ex VAT

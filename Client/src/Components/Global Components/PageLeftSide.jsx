@@ -16,6 +16,7 @@ import BasketProductsDisplay from "../Small Components/BasketItemsDisplay";
 
 export default function PageLeftSide(props) {
   const [searchQuerry, setSearchQuerry] = useState(" ");
+  const { productsList } = props;
 
   //Getting the context data from the context component
   //Destructuring the object, for a best practice use
@@ -43,16 +44,12 @@ export default function PageLeftSide(props) {
     increaseProductAmount(product);
   };
 
-  //Importing data and functions from component's props
-  const productList = props.productsList;
-  const setGlobalPrices = props.setGlobalPrices;
-
   //Setting the search filtering function
   //It takes the user input and filters out the array accordingly
   let filterFunc = [];
   filterFunc =
     searchQuerry !== " "
-      ? productList.filter((product) =>
+      ? productsList.filter((product) =>
           product.ProductName.toLowerCase().includes(searchQuerry.toLowerCase())
         )
       : " ";
@@ -92,8 +89,10 @@ export default function PageLeftSide(props) {
             : " "}
           <div className="line line-2"></div>
         </div>
-          <h2 className="text-cardText font-bold text-primary-color">Your products :</h2>
-          <div className="page-left-side-bottom-section scroll-section">
+        <h2 className="text-cardText font-bold text-primary-color">
+          Your products :
+        </h2>
+        <div className="page-left-side-bottom-section scroll-section">
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
               <BasketProductsDisplay
@@ -102,7 +101,6 @@ export default function PageLeftSide(props) {
                 handleIncreaseProductAmount={handleIncreaseProductAmount}
                 handleReduceProductAmount={handleReduceProductAmount}
                 handleRemoveProduct={handleRemoveProduct}
-                setGlobalPrices={setGlobalPrices}
               />
             ) : (
               ""
