@@ -53,8 +53,8 @@ export default function PageLeftSideFinalCheckPage(props) {
         />
       </PopUpMessage>
       <div
-        className="page-left-side-wrapper block px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
-            focus:outline-none relative"
+        className="page-left-side-wrapper px-6 py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+            "
       >
         <div className="page-left-side-contacts-main-content">
           <div className="page-left-side-contacts-top-section">

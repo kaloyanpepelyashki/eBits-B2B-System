@@ -20,7 +20,7 @@ export default function KitReceipt(props) {
 
   return (
     <>
-      <div className="separate-product-receipt-wrapper block px-6 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl focus:outline-none relative">
+      <div className="separate-product-receipt-wrapper block px-6 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl ">
         <h1 className="text-total text-TextMid text-primary-color">Kit</h1>
         <p className="ReceiptPriceL text-TextBig text-primary-color -mb-6">
           {total.toFixed(2)}
