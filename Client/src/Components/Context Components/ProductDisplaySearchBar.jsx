@@ -1,7 +1,7 @@
 //Importing React hooks
 import React, { useState, useEffect } from "react";
 import Icon from "@mdi/react";
-import { mdiInformationOutline } from "@mdi/js";
+import { mdiAlphaICircleOutline } from "@mdi/js";
 
 export default React.memo(function ProductSearchBar({ product, addProduct }) {
   const [productWithVar, setProductWithVar] = useState({});
@@ -343,6 +343,9 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
             {product.ProductName}
           </h2>
         </div>
+         <div className="flex justify-end">
+         <Icon path={mdiAlphaICircleOutline} size={1}/>
+       </div>
       </div>
     </>
   );
