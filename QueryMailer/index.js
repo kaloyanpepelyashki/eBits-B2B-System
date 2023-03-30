@@ -2,6 +2,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const { google } = require("googleapis");
 
 const app = express();
 app.use(
@@ -12,43 +13,23 @@ app.use(
 
 app.use(bodyParser.json());
 
-app.get("/querymailer", async function (req, res, next) {
-  res.send("Hello World");
-});
-
-//App post mailer
-//Getting the data from the client side
-app.post("/querymailer", (req, res, next) => {
-  const email = req.body.emailAddress;
-
-  //Declaring a transporter
-  const transporter = nodemailer.createTransport({
-    host: "smtp.simply.com",
-    port: 2525,
-    auth: {
-      user: "kontakt@ebits.dk",
-      pass: "v3djI553Ek91",
-    },
+app.get("/queryReceiver", async (req, res) => {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: "credentials.json",
+    scopes: "https://www.googleapis.com/auth/spreadsheets",
   });
 
-  //Declaring the options for the transporter. (where to send the email, from who, subject and body of the email)
-  const options = {
-    from: "kontakt@ebits.dk",
-    to: email,
-    subject: "Test",
-    text: "emailInfo",
-  };
+  const client = await auth.getClient();
 
-  //Sending the email
-  transporter.sendMail(options, (err, info) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send("Error sending mail");
-    } else {
-      console.log("Email sent" + info.response);
-      res.send("email sent");
-    }
+  const googleSheets = google.sheets({ version: "v4", auth: client });
+
+  const spreadsheetId = "1Spi2lOQy2Jo4DGMLekzL-25IPd9mjteFXs-n8RhVUfg";
+
+  const metaData = await googleSheets.spreadsheets.get({
+    auth,
+    spreadsheetId: spreadsheetId,
   });
+  res.send(metaData);
 });
 
 app.listen(5000, () => {

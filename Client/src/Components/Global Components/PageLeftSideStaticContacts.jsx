@@ -1,5 +1,5 @@
 //Importing React hooks
-import { useReducer, useState, useContext } from "react";
+import { useContext } from "react";
 
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import dayjs, { Dayjs } from "dayjs";
@@ -11,10 +11,7 @@ export default function PageLeftSideStaticContacts() {
   todayDate.setDate(todayDate.getDate() + 14);
 
   const {
-    reducer,
-    formInitialState,
     contactInfoState,
-    dispatch,
     getContactInfoFuncs: {
       handleNameChange,
       handleLastNameChange,
