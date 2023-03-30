@@ -92,7 +92,7 @@ export default function PageLeftSide(props) {
         <h2 className="text-cardText font-bold text-primary-color">
           Your products :
         </h2>
-        <div className="page-left-side-bottom-section scroll-section">
+        <div className="page-left-side-bottom-section mt-6 scroll-section">
           {cartProducts.map((product) =>
             product.qty > 0 && product.varQty > 0 ? (
               <BasketProductsDisplay
