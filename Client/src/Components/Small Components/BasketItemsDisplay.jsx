@@ -91,10 +91,6 @@ export default function BasketProductsDisplay(props) {
           <b>{product.qty}</b>
         </h2>
 
-            <h2 className="final-check-product-table-price text-ProductAmountIndex mt-1 mx-2">
-              <b>{product.qty}</b>
-            </h2>
-
             <button
               className="inline-block font-bold mt-1 mx-2 border border-solid px-2 -ml-2 mr-10"
               onClick={() => {
@@ -104,7 +100,7 @@ export default function BasketProductsDisplay(props) {
               -
             </button>
 
-            <p className="text-right inline-block text-ProductTitleMedium font-extrabold">
+            <p className="text-right inline-block text-ProductTitleMedium font-extrabold w-32">
               {(Number(product.Price) * Number(product.qty)).toFixed(2)}
               &nbsp;Dkk
             </p>
