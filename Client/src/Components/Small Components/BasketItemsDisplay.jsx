@@ -100,7 +100,7 @@ export default function BasketProductsDisplay(props) {
           -
         </button>
        
-        <p className="text-right inline-block text-ProductTitleMedium font-extrabold">
+        <p className="text-right inline-block text-ProductTitleMedium font-extrabold w-32">
           {(Number(product.Price) * Number(product.qty)).toFixed(2)}
           &nbsp;Dkk
         </p>
@@ -108,6 +108,5 @@ export default function BasketProductsDisplay(props) {
     </div>
   </div>
 </div>
-
   );
 }

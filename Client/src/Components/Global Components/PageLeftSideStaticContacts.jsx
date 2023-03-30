@@ -141,7 +141,7 @@ export default function PageLeftSideStaticContacts() {
             focus:outline-none" style={{ height: '320px', width: '300px' }}>
 
             <DateCalendar
-              style={{ height: '320px', width: '300px' }}
+              style={{ height: '320px', width: '300px', }}
               minDate={dayjs(todayDate)}
               displayWeekNumber={false}
               value={value}

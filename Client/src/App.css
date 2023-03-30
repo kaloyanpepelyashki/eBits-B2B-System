@@ -538,3 +538,18 @@ img {
         flex-direction: column;
         overflow-y: scroll;
     }
+
+    .delivery-date-info-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .final-check-product-table {
+      display: block;
+      /* other CSS styles */
+    }
+
+
+
+    

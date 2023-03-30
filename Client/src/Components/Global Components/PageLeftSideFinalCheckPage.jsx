@@ -58,10 +58,10 @@ export default function PageLeftSideFinalCheckPage(props) {
       >
         <div className="page-left-side-contacts-main-content">
           <div className="page-left-side-contacts-top-section">
-            <p className="page-left-side-contacts-top-section-heading">
+            <p className="page-left-side-contacts-top-section-heading font-bold  text-primary-color">
               Last check if this is everything...
             </p>
-            <div className="page-left-side-contacts-add-more-holder">
+            <div className="page-left-side-contacts-add-more-holder text-primary-color">
               <Icon
                 onClick={() => {
                   setToggleUp(true);
@@ -69,41 +69,42 @@ export default function PageLeftSideFinalCheckPage(props) {
                 path={mdiPlus}
                 size={1}
               />
-              <p>Add more</p>
+              <p className="text-primary-color text-ProductTitleSmall font-bold">Add more</p>
             </div>
           </div>
-          <div className="products-holder-section">
-            <div className="final-check-products-table-holder">
-              <table className="final-check-product-table">
-                <tr className="final-check-product-table-head">
-                  <th className="final-check-product-table-I-tag-field"></th>
-                  <th className="final-check-product-table-name-field">Name</th>
-                  <th className="final-check-product-table-total-field">
-                    Total
-                  </th>
-                  <th className="final-check-product-table-amount-field">
-                    Amount
-                  </th>
-                  <th className="final-check-product-table-delete-field"></th>
-                </tr>
-                {cartProducts.map((product) =>
-                  product.qty > 0 && product.varQty > 0 ? (
-                    <ProductDisplayFinalCheckPage
-                      key={product.productBaksetUnqKey}
-                      product={product}
-                      handleIncreaseProductAmount={handleIncreaseProductAmount}
-                      handleReduceProductAmount={handleReduceProductAmount}
-                      handleRemoveProduct={handleRemoveProduct}
-                    />
-                  ) : (
-                    ""
-                  )
-                )}
-              </table>
-            </div>
-          </div>
+
+         <div className="products-holder-section">
+         <div className="final-check-products-table-holder">
+         <table className="final-check-product-table">
+         <thead>
+         <tr className="final-check-product-table-head">
+          <th className="final-check-product-table-I-tag-field"></th>
+          <th className="final-check-product-table-name-field">Name</th>
+          <th className="final-check-product-table-total-field">Total</th>
+          <th className="final-check-product-table-amount-field">Amount</th>
+          <th className="final-check-product-table-delete-field"></th>
+        </tr>
+      </thead>
+      <tbody style={{ visibility: 'visible' }}>
+        {cartProducts.map((product) =>
+          product.qty > 0 && product.varQty > 0 ? (
+            <ProductDisplayFinalCheckPage
+              key={product.productBaksetUnqKey}
+              product={product}
+              handleIncreaseProductAmount={handleIncreaseProductAmount}
+              handleReduceProductAmount={handleReduceProductAmount}
+              handleRemoveProduct={handleRemoveProduct}
+            />
+          ) : (
+            ""
+          )
+        )}
+          </tbody>
+         </table>
         </div>
+       </div>
       </div>
+    </div>
     </>
   );
 }
