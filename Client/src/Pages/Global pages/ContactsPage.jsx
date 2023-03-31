@@ -21,33 +21,85 @@ export default function ContactInfoPage() {
   const location = useLocation();
 
   const handleTransfer = () => {
-    if (
-      contactInfoState.name &&
-      contactInfoState.lastName &&
-      contactInfoState.email &&
-      contactInfoState.deliveryDate
-    ) {
-      //Navigating to next page
-      //Sending the data to the next page using reacr Location
-      navigate("/finalChackPage", {
-        state: {
-          name: contactInfoState.name,
-          lastName: contactInfoState.lastName,
-          email: contactInfoState.email,
-          phone: contactInfoState.phone,
-          street: contactInfoState.street,
-          houseNumber: contactInfoState.houseNumber,
-          postNumber: contactInfoState.postNumber,
-          town: contactInfoState.town,
-          deliveryDate: contactInfoState.deliveryDate,
-          notes: contactInfoState.notes,
-          contactsPageType: "separateProductsBuy",
-        },
-      });
-    } else {
-      window.alert("fill out all fields");
-    }
+    // if (
+    // contactInfoState.name &&
+    //   contactInfoState.lastName &&
+    //   contactInfoState.email &&
+    //   contactInfoState.deliveryDate;
+    // ) {
+    //   //Navigating to next page
+    //   //Sending the data to the next page using reacr Location
+    //   navigate("/finalChackPage", {
+    //     state: {
+    //       name: contactInfoState.name,
+    //       lastName: contactInfoState.lastName,
+    //       email: contactInfoState.email,
+    //       phone: contactInfoState.phone,
+    //       street: contactInfoState.street,
+    //       houseNumber: contactInfoState.houseNumber,
+    //       postNumber: contactInfoState.postNumber,
+    //       town: contactInfoState.town,
+    //       deliveryDate: contactInfoState.deliveryDate,
+    //       notes: contactInfoState.notes,
+    //       contactsPageType: "separateProductsBuy",
+    //     },
+    //   });
+    // } else {
+    //   window.alert("fill out all fields");
+    // }
+
+    // if (!contactInfoState.name) {
+    //   window.alert("Please give us a name");
+    // }
+
+    // if (!contactInfoState.lastName) {
+    //   window.alert("Please give us your last name");
+    // }
+
+    // if (!contactInfoState.email) {
+    //   window.alert("Please give tell us your email");
+    // }
+    // if (!contactInfoState.phone) {
+    //   window.alert("Please give tell us your phone number");
+    // }
+    // if (!contactInfoState.email.includes("@")) {
+    //   window.alert("Please provide us with a valid email");
+    // }
+    // if (!contactInfoState.phone) {
+    //   window.alert("Please give tell us your phone number");
+    // }
+    // if (
+    //   !contactInfoState.name &&
+    //   !contactInfoState.lastName &&
+    //   !contactInfoState.email &&
+    //   !contactInfoState.deliveryDate
+    // ) {
+    //   window.alert("Please fill out all fields");
+    // } else {
+    //   navigate("/finalChackPage", {
+    //     state: {
+    //       name: contactInfoState.name,
+    //       lastName: contactInfoState.lastName,
+    //       email: contactInfoState.email,
+    //       phone: contactInfoState.phone,
+    //       street: contactInfoState.street,
+    //       houseNumber: contactInfoState.houseNumber,
+    //       postNumber: contactInfoState.postNumber,
+    //       town: contactInfoState.town,
+    //       deliveryDate: contactInfoState.deliveryDate,
+    //       notes: contactInfoState.notes,
+    //       contactsPageType: "separateProductsBuy",
+    //     },
+    //   });
+    // }
+
+    Object.keys(contactInfoState).map((key) => {
+      if (!contactInfoState[key] && contactInfoState[key].length <= 0) {
+        window.alert(`Please provide us with ${key}`);
+      }
+    });
   };
+
   return (
     <>
       <main className="contact-info-page-main-content-wrapper page-main-section">

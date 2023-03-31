@@ -71,7 +71,7 @@ export default function BasketProductsDisplay(props) {
         <div className="flex justify-between items-center">
           <img
             style={{ width: "49px", height: "49px" }}
-            src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}
+            src={`http://65.109.137.46:5000/img/${product.ProductIndex}_${product.VariationID}.jpg`}
             alt={product.ProductName}
           />
           <div>
