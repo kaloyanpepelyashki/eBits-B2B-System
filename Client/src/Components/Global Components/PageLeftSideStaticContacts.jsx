@@ -143,7 +143,7 @@ export default function PageLeftSideStaticContacts() {
             <DateCalendar
               style={{ height: "320px", width: "300px" }}
               minDate={dayjs(todayDate)}
-              displayWeekNumber={true}
+              displayWeekNumber={false}
               value={value}
               data-value={contactInfoState.deliveryDate}
               onChange={(newValue) => handleCalendar(newValue)}

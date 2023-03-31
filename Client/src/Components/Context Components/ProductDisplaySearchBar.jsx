@@ -299,7 +299,7 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
     }
   };
   return (
-    <>
+  
       <div
         className="product-search-bar-outter-wrapper px-8 py-5 bg-white border-white border-slate-300 border-round text-sm shadow-sm
             focus:outline-none"
@@ -341,14 +341,23 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
             src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}
             alt={product.ProductName}
          />
+
+        <div
+          className="product-search-bar-clickable rounded-2xl"
+          onClick={() => {
+            handleChoiceValidation();
+          }}
+        >
+
          <h2 className="text-ProductTitleSmall font-bold">
            {product.ProductName}
          </h2>
         </div>
+      </div>
+
         <div className="flex justify-end">
           <Icon path={mdiAlphaICircleOutline} size={1} />
         </div>
-      </div>
-    </>
+    </div>
   );
 });

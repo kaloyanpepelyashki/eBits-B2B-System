@@ -46,7 +46,7 @@ export default function SeparateProductsReceipt(props) {
           <h1 className="text-cardText font-bold text-primary-color mt-8 mb-2 mr-40">
             Products:
           </h1>
-          <div className="seprate-products-receipt-products-holder">
+          <div className="scroll-section">
             {cartProducts.map((product) =>
               product.qty && product.variationQty !== 0 ? (
                 <ProductDisplayReceipt
