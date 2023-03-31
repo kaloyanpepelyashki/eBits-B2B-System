@@ -96,6 +96,8 @@ export default function ContactInfoPage() {
     Object.keys(contactInfoState).map((key) => {
       if (!contactInfoState[key] && contactInfoState[key].length <= 0) {
         window.alert(`Please provide us with ${key}`);
+      } else {
+        navigate("/finalChackPage");
       }
     });
   };

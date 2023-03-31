@@ -56,6 +56,7 @@ export default function PageLeftSideStaticContacts() {
               value={contactInfoState.name}
               placeholder="Name"
               onChange={handleNameChange}
+              required
             />
             <input
               type="text"
@@ -64,16 +65,19 @@ export default function PageLeftSideStaticContacts() {
               value={contactInfoState.lastName}
               placeholder="Last Name"
               onChange={handleLastNameChange}
+              required
             />
 
             <div className="contacts-page-small-inputs-holder">
               <input
                 type="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
               focus:outline-none"
                 value={contactInfoState.email}
                 placeholder="Email"
                 onChange={handleEmailChange}
+                required
               />
               <input
                 inputMode="numeric"
@@ -83,6 +87,7 @@ export default function PageLeftSideStaticContacts() {
                 value={contactInfoState.phone}
                 placeholder="Phone"
                 onChange={handlePhoneChange}
+                required
               />
             </div>
           </div>
@@ -100,6 +105,7 @@ export default function PageLeftSideStaticContacts() {
               value={contactInfoState.street}
               placeholder="Street"
               onChange={handleStreetChange}
+              required
             />
             <input
               type="text"
@@ -108,6 +114,7 @@ export default function PageLeftSideStaticContacts() {
               value={contactInfoState.houseNumber}
               placeholder="House Number"
               onChange={handleHouseNumberChange}
+              required
             />
             <div className="contacts-page-small-inputs-holder ">
               <input
@@ -118,6 +125,7 @@ export default function PageLeftSideStaticContacts() {
                 value={contactInfoState.postNumber}
                 placeholder="Post number"
                 onChange={handlePostNumberChange}
+                required
               />
               <input
                 type="text"
@@ -126,6 +134,7 @@ export default function PageLeftSideStaticContacts() {
                 value={contactInfoState.town}
                 placeholder="Town"
                 onChange={handleTownChange}
+                required
               />
             </div>
           </div>
@@ -147,6 +156,7 @@ export default function PageLeftSideStaticContacts() {
               value={value}
               data-value={contactInfoState.deliveryDate}
               onChange={(newValue) => handleCalendar(newValue)}
+              required
             />
           </div>
           <div className="notes-info-block">
