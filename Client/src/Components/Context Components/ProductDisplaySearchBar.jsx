@@ -301,7 +301,7 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
   return (
     <>
       <div
-        className="product-search-bar-outter-wrapper px-6 py-4 bg-white border-white border-slate-300 border-round text-sm shadow-sm
+        className="product-search-bar-outter-wrapper px-8 py-5 bg-white border-white border-slate-300 border-round text-sm shadow-sm
             focus:outline-none"
       >
         <select
@@ -334,22 +334,16 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
             </option>
           )}
         </select>
-
-        <img
-          style={{ width: "38px", height: "34px" }}
-          src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}
-          alt={product.ProductName}
-        />
-
-        <div
-          className="product-search-bar-clickable rounded-2xl"
-          onClick={() => {
-            handleChoiceValidation();
-          }}
-        >
-          <h2 className="text-ProductTitleSmall product-search-bar-product-title font-bold">
-            {product.ProductName}
-          </h2>
+         
+        <div className="flex items-center space-x-5 ml-10 mr-10">
+       <img 
+         className="w-10 h-10 object-contain"
+            src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}
+            alt={product.ProductName}
+         />
+         <h2 className="text-ProductTitleSmall font-bold">
+           {product.ProductName}
+         </h2>
         </div>
         <div className="flex justify-end">
           <Icon path={mdiAlphaICircleOutline} size={1} />
