@@ -255,6 +255,8 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
   ////
   //////
 
+  console.log(variationAndPrice);
+
   //Sets the variable that is to hold the variation information
   let value = {
     VariationName: product.ProductName,
@@ -333,6 +335,12 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
           )}
         </select>
 
+        <img
+          style={{ width: "38px", height: "34px" }}
+          src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}
+          alt={product.ProductName}
+        />
+
         <div
           className="product-search-bar-clickable rounded-2xl"
           onClick={() => {
@@ -343,9 +351,9 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
             {product.ProductName}
           </h2>
         </div>
-         <div className="flex justify-end">
-         <Icon path={mdiAlphaICircleOutline} size={1}/>
-       </div>
+        <div className="flex justify-end">
+          <Icon path={mdiAlphaICircleOutline} size={1} />
+        </div>
       </div>
     </>
   );

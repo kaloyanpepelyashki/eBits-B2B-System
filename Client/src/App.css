@@ -548,6 +548,11 @@ img {
       /* other CSS styles */
     }
 
+    .item-display-basket {
+      margin-bottom: 13px;
+      border-top: 1px solid rgba(223, 223, 223, 0.091);
+    }
+
 
 
     
