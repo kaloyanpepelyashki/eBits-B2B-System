@@ -20,20 +20,31 @@ export default function KitReceipt(props) {
 
   return (
     <>
-      <div className="separate-product-receipt-wrapper block px-6 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl ">
+      <div className="separate-product-receipt-wrapper block px-4 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl ">
         <h1 className="text-total text-TextMid text-primary-color">Kit</h1>
-        <p className="ReceiptPriceL text-TextBig text-primary-color -mb-6">
-          {total.toFixed(2)}
-        </p>
-        <p className="text-primary-color text-ProductTitleSmall mr-44">
-          Ex VAT
-        </p>
+
+        <div className="flex justify-center items-center">
+        <p className="text-primary-color font-bold text-ProductTitleSmall mr-4 -mb-8">
+         Ex VAT
+         </p>
+
+         <p className="ReceiptPriceL text-TextBig text-primary-color">
+            {total.toFixed(2)}
+            </p>
+         
+            <p className="text-primary-color font-bold text-ProductTitleSmall
+                   px-4 py-2 bg-white border-white border-slate-300 rounded-xl
+                  shadow-xl focus:outline-none ml-4">
+            DKK.
+          </p>
+        </div>
+
         <div className="line line-3 mt-1.5"></div>
         <div className="product-receipt-products-display-section">
           <h1 className="text-cardText text-primary-color mt-4 mr-40">
             Products:
           </h1>
-          <div className="products-receipt-products-holder">
+          <div className="scroll-section">
             {cartProducts.map((product) =>
               product.qty && product.variationQty !== 0 ? (
                 <ProductDisplayReceipt
@@ -46,7 +57,7 @@ export default function KitReceipt(props) {
               )
             )}
           </div>
-          <div className="line line-3 mt-1.5"></div>
+          <div className="line line-3"></div>
         </div>
         {props.children}
       </div>
