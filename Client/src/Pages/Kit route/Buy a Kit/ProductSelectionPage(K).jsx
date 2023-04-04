@@ -20,11 +20,15 @@ export default function ProductSelectionPageKB({ productsList }) {
     useContext(ShoppingCartFunc);
 
   const handleTransfer = () => {
-    navigate("/contactInfoPage", {
-      state: {
-        contactsPageType: "kitBuy",
-      },
-    });
+    if (cartProducts.filter((product) => product.qty !== 0).length !== 0) {
+      navigate("/contactInfoPage", {
+        state: {
+          contactsPageType: "kitBuy",
+        },
+      });
+    } else {
+      window.alert("Please select a product");
+    }
   };
   return (
     <>

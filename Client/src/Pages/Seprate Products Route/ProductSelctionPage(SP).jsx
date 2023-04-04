@@ -22,13 +22,19 @@ export default function ProductSelectionPageSP({ productsList }) {
     setGlobalPrices,
   } = useContext(ShoppingCartFunc);
 
+  cartProducts.filter((product) => product.qty !== 0);
+
   //Initiating the page transfer function
   const handleTransfer = () => {
-    navigate("/contactInfoPage", {
-      state: {
-        contactsPageType: "separateProductsBuy",
-      },
-    });
+    if (cartProducts.filter((product) => product.qty !== 0).length !== 0) {
+      navigate("/contactInfoPage", {
+        state: {
+          contactsPageType: "separateProductsBuy",
+        },
+      });
+    } else {
+      window.alert("Please select a product");
+    }
   };
 
   return (

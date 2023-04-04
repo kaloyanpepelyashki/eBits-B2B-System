@@ -18,29 +18,34 @@ import SeparateProductsReceipt from "../../Components/Global Components/Separate
 
 export default function FinalCheckPage(props) {
   const location = useLocation();
+
   const { productList } = props;
+
   const { cartProducts } = useContext(ShoppingCartFunc);
+
   const { contactInfoState } = useContext(ContactsInformationFunc);
-  console.log(contactInfoState);
-  const sendQuery = () => {
-    axios
-      //Makes a post request to the mailer server
-      .post(
-        "http://localhost:5000/querymailer",
-        {
-          emailAddress: contactInfoState.email,
-          name: contactInfoState.name,
-          lastName: contactInfoState.lastName,
-        },
-        { headers: { "Content-Type": "application/json" } }
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
+  // const sendQuery = () => {
+  //   axios
+  //     //Makes a post request to the mailer server
+  //     .post(
+  //       "http://localhost:5000/querymailer",
+  //       {
+  //         emailAddress: contactInfoState.email,
+  //         name: contactInfoState.name,
+  //         lastName: contactInfoState.lastName,
+  //       },
+  //       { headers: { "Content-Type": "application/json" } }
+  //     )
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  console.log(location.state.contactsPageType);
   return (
     <>
       <main className="final-check-page-content-wrapper page-main-section">
@@ -59,7 +64,7 @@ export default function FinalCheckPage(props) {
             )}
           </div>
         </div>
-        <ButtonsHolder handleTransfer={sendQuery} />
+        <ButtonsHolder />
       </main>
     </>
   );

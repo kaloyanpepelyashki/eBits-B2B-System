@@ -97,7 +97,11 @@ export default function ContactInfoPage() {
       if (!contactInfoState[key] && contactInfoState[key].length <= 0) {
         window.alert(`Please provide us with ${key}`);
       } else {
-        navigate("/finalChackPage");
+        navigate("/finalChackPage", {
+          state: {
+            contactsPageType: location.state.contactsPageType,
+          },
+        });
       }
     });
   };
