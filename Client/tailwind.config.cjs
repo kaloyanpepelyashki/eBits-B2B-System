@@ -17,6 +17,7 @@ module.exports = {
       TextXL: "34pt",
       TextBig: "25pt",
       TextMid: "20pt",
+      TextSmall: "14pt",
       GlobalBtnsTxt: "15pt",
       HeadingSmall: "16pt",
       cardText: "14pt",

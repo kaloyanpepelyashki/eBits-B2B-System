@@ -13,11 +13,12 @@ import KitReceiptBottomSection from "../../../Components/Global Components/KitBu
 import KitReceipt from "../../../Components/Global Components/KitReceipt";
 import PageLeftSide from "../../../Components/Global Components/PageLeftSide";
 import PageLeftTopSection from "../../../Components/Global Components/PageLeftSideTopSection";
+import AmountPicker from "../../../Components/Small Components/AtomicComponents/AmountPicker";
+import ProcessMicroCopy from "../../../Components/Global Components/MicroCopy";
 
 export default function ProductSelectionPageKB({ productsList }) {
   const navigate = useNavigate();
-  const { cartProducts, globalPrices, setGlobalPrices } =
-    useContext(ShoppingCartFunc);
+  const { cartProducts, kitAmount } = useContext(ShoppingCartFunc);
 
   const handleTransfer = () => {
     if (cartProducts.filter((product) => product.qty !== 0).length !== 0) {
@@ -26,8 +27,12 @@ export default function ProductSelectionPageKB({ productsList }) {
           contactsPageType: "kitBuy",
         },
       });
-    } else {
-      window.alert("Please select a product");
+    }
+    if (kitAmount <= 0) {
+      window.alert("Kit Amount cannot be 0");
+    }
+    if (cartProducts.filter((product) => product.qty !== 0).length == 0) {
+      window.alert("Please add products to the basket");
     }
   };
   return (
@@ -35,13 +40,14 @@ export default function ProductSelectionPageKB({ productsList }) {
       <main className="product-selectionKB-page-content-wrapper product-selection-page-content-wrapper page-main-section">
         <div className="product-selectionKB-page-inner-content product-selection-page-inner-content">
           <div className="product-selectionSP-page-widgets-holder page-widgets-holder">
-            <PageLeftSide
-              globalPrices={globalPrices}
-              setGlobalPrices={setGlobalPrices}
-              productsList={productsList}
-            >
-              <PageLeftTopSection />
-            </PageLeftSide>
+            <div>
+              <ProcessMicroCopy processStep={1} />
+              <PageLeftSide productsList={productsList}>
+                <PageLeftTopSection>
+                  <AmountPicker />
+                </PageLeftTopSection>
+              </PageLeftSide>
+            </div>
             <KitReceipt>
               <KitReceiptBottomSection />
             </KitReceipt>

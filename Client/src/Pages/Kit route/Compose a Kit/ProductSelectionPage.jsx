@@ -9,13 +9,27 @@ import { ShoppingCartFunc } from "../../../Components/Context Components/Shoppin
 
 //Importing Components
 import ButtonsHolder from "../../../Components/Global Components/ButtonsHolderComponent";
-import KitReceipt from "../../../Components/Global Components/KitReceipt";
 import PageLeftSide from "../../../Components/Global Components/PageLeftSide";
 import PageLeftTopSection from "../../../Components/Global Components/PageLeftSideTopSection";
+import SeparateProductsReceipt from "../../../Components/Global Components/SeparateProductReceipt";
 
-export default function ProductSelectionPageKC({ productsList }) {
+export default function ProductSelectionPageKC(props) {
   const navigate = useNavigate();
+  const { cartProducts } = useContext(ShoppingCartFunc);
 
+  const { productsList } = props;
+
+  const handleTransfer = () => {
+    if (cartProducts.filter((product) => product.qty !== 0).length !== 0) {
+      navigate("/contactInfoCreatedKit", {
+        state: {
+          contactsPageType: "kitCreate",
+        },
+      });
+    } else {
+      window.alert("Please select a product");
+    }
+  };
   return (
     <>
       <main className="product-selectionKC-page-content-wrapper product-selection-page-content-wrapper page-main-section">
@@ -24,9 +38,9 @@ export default function ProductSelectionPageKC({ productsList }) {
             <PageLeftSide productsList={productsList}>
               <PageLeftTopSection />
             </PageLeftSide>
-            <KitReceipt />
+            <SeparateProductsReceipt title={"Kit"} />
           </div>
-          <ButtonsHolder />
+          <ButtonsHolder handleTransfer={handleTransfer} />
         </div>
       </main>
     </>
