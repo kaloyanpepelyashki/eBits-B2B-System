@@ -14,7 +14,6 @@ import ButtonsHolder from "../../Components/Global Components/ButtonsHolderCompo
 export default function TypeOfOrderPage() {
   const navigate = useNavigate();
   const [routeChoice, setRouteChoice] = useState(0);
-  const [nextRoute, setNextRoute] = useState("");
 
   const nextDest =
     routeChoice == 1
