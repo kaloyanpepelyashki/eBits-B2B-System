@@ -27,6 +27,7 @@ import ChoiceBuyOrCreate from "./Pages/Kit route/BuyOrCreate";
 import ProductSelectionPageKC from "./Pages/Kit route/Compose a Kit/ProductSelectionPage";
 import ProductSelectionPageSP from "./Pages/Seprate Products Route/ProductSelctionPage(SP)";
 import FinalCheckPage from "./Pages/Global pages/FinalCheckPage";
+import ContactsPageKC from "./Pages/Kit route/Compose a Kit/ContactsPageComposeAKit";
 
 function App() {
   //Fetching data from the server
@@ -80,9 +81,16 @@ function App() {
                 path="/productSelectionPageKb"
                 element={<ProductSelectionPageKB productsList={productsList} />}
               />
+
+              {/* <--- ! | Kit Create route | ! --->  */}
+
               <Route
                 path="/productSelectionPageKC"
                 element={<ProductSelectionPageKC productsList={productsList} />}
+              />
+              <Route
+                path="/contactInfoCreatedKit"
+                element={<ContactsPageKC />}
               />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>

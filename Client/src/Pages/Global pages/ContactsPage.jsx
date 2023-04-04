@@ -13,6 +13,7 @@ import KitReceiptBottomSection from "../../Components/Global Components/KitBuyRe
 import KitReceipt from "../../Components/Global Components/KitReceipt";
 import PageLeftSideStaticContacts from "../../Components/Global Components/PageLeftSideStaticContacts";
 import SeparateProductsReceipt from "../../Components/Global Components/SeparateProductReceipt";
+import ProcessMicroCopy from "../../Components/Global Components/MicroCopy";
 
 export default function ContactInfoPage() {
   const { contactInfoState } = useContext(ContactsInformationFunc);
@@ -111,9 +112,12 @@ export default function ContactInfoPage() {
       <main className="contact-info-page-main-content-wrapper page-main-section">
         <div className="contact-info-page-inner-content">
           <div className="contact-info-page-widgets-holder">
-            <PageLeftSideStaticContacts />
+            <div>
+              <ProcessMicroCopy processStep={2} />
+              <PageLeftSideStaticContacts />
+            </div>
             {location.state.contactsPageType === "separateProductsBuy" ? (
-              <SeparateProductsReceipt />
+              <SeparateProductsReceipt title={"Total"} />
             ) : (
               <KitReceipt>
                 <KitReceiptBottomSection />

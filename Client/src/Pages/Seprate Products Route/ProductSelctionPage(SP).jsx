@@ -11,6 +11,7 @@ import { ShoppingCartFunc } from "../../Components/Context Components/ShoppingCa
 import ButtonsHolder from "../../Components/Global Components/ButtonsHolderComponent";
 import PageLeftSide from "../../Components/Global Components/PageLeftSide";
 import SeparateProductsReceipt from "../../Components/Global Components/SeparateProductReceipt";
+import ProcessMicroCopy from "../../Components/Global Components/MicroCopy";
 
 export default function ProductSelectionPageSP({ productsList }) {
   const navigate = useNavigate();
@@ -42,12 +43,15 @@ export default function ProductSelectionPageSP({ productsList }) {
       <main className="product-selectionSP-page-content-wrapper product-selection-page-content-wrapper page-main-section">
         <div className="product-selectionSP-page-inner-content product-selection-page-inner-content">
           <div className="product-selectionSP-page-widgets-holder page-widgets-holder">
-            <PageLeftSide
-              globalPrices={globalPrices}
-              setGlobalPrices={setGlobalPrices}
-              productsList={productsList}
-            ></PageLeftSide>
-            <SeparateProductsReceipt globalPrices={globalPrices} />
+            <div>
+              <ProcessMicroCopy processStep={1} />
+              <PageLeftSide
+                globalPrices={globalPrices}
+                setGlobalPrices={setGlobalPrices}
+                productsList={productsList}
+              ></PageLeftSide>
+            </div>
+            <SeparateProductsReceipt title={"Total"} />
           </div>
         </div>
         <ButtonsHolder handleTransfer={handleTransfer} className="buttons-holder-h"/>

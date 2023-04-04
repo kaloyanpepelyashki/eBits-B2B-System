@@ -65,6 +65,15 @@ img {
 
 
 
+  /* <--- --- | PROCESS MICRO COPY COMPONENT STYLING | --- ---> */
+.process-micro-copy-holder {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+
   /* <--- --- | HEADER-BAR COMPONENT STYLING | --- ---> */
 
   .buttons-holder{

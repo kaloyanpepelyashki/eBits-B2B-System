@@ -15,6 +15,9 @@ import axios from "axios";
 import KitReceipt from "../../Components/Global Components/KitReceipt";
 import KitReceiptBottomSection from "../../Components/Global Components/KitBuyReceiptBottomSection";
 import SeparateProductsReceipt from "../../Components/Global Components/SeparateProductReceipt";
+import PageLeftTopSection from "../../Components/Global Components/PageLeftSideTopSection";
+import AmountPicker from "../../Components/Small Components/AtomicComponents/AmountPicker";
+import ProcessMicroCopy from "../../Components/Global Components/MicroCopy";
 
 export default function FinalCheckPage(props) {
   const location = useLocation();
@@ -51,12 +54,27 @@ export default function FinalCheckPage(props) {
       <main className="final-check-page-content-wrapper page-main-section">
         <div className="final-check-page-inner-content page-inner-content">
           <div className="final-check-page-widgets-holder page-widgets-holder">
-            <PageLeftSideFinalCheckPage
-              productList={productList}
-              cartProducts={cartProducts}
-            />
+            <div>
+              <ProcessMicroCopy processStep={3} />
+              <PageLeftSideFinalCheckPage
+                productList={productList}
+                cartProducts={cartProducts}
+              >
+                {location.state.contactsPageType === "separateProductsBuy" ? (
+                  ""
+                ) : (
+                  <PageLeftTopSection>
+                    {location.state.contactsPageType === "kitBuy" ? (
+                      <AmountPicker />
+                    ) : (
+                      ""
+                    )}
+                  </PageLeftTopSection>
+                )}
+              </PageLeftSideFinalCheckPage>
+            </div>
             {location.state.contactsPageType === "separateProductsBuy" ? (
-              <SeparateProductsReceipt />
+              <SeparateProductsReceipt title={"Total"} />
             ) : (
               <KitReceipt>
                 <KitReceiptBottomSection />
