@@ -35,7 +35,7 @@ export default function TypeOfOrderPage() {
           <h1 className="TypeOfOrder-page-header text-TextBig text-primary-color font-normal mt-20 mb-10">
             What are you ordering?
           </h1>
-          <div className="TypeOfOrder-page-route-choice-holder mx-8">
+          <div className="TypeOfOrder-page-route-choice-holder mx-8 mt-16">
             <div className="TypeOfOrder-page-choice-item font-semibold space-x-4">
               <input
                 name="route-choice"
@@ -76,7 +76,7 @@ export default function TypeOfOrderPage() {
             </div>
           </div>
         </div>
-        <ButtonsHolder handleTransfer={handleTransfer} />
+        <ButtonsHolder handleTransfer={handleTransfer} className="button-holder" />
       </main>
     </>
   );

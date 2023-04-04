@@ -67,9 +67,24 @@ img {
 
   /* <--- --- | HEADER-BAR COMPONENT STYLING | --- ---> */
 
-  .buttons-holder {
+  .buttons-holder{
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: transparent;
   }
+
+  .buttons-holder-h {
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    margin-top: 20px;
+    z-index: 1;
+  }
+
   .buttons-holder-inner {
     display: flex;
     flex-direction: row;
@@ -281,7 +296,6 @@ img {
     align-items: center;
   }
   .landing-page-welcome-header {
-    width: fit-content;
     color: rgb(124, 124, 124);
   }
   .email-input-field {
@@ -546,8 +560,24 @@ img {
       overflow-x: hidden;
       overflow-y: auto;
     }
+
+    .basket-scroll-section{
+      width: 100%;
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
     
     .scroll-section::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+      background-color: #c4c4c4;
+      border-radius: 5px;
+    }
+
+    .basket-scroll-section::-webkit-scrollbar {
       width: 10px;
       height: 10px;
       background-color: #c4c4c4;
@@ -559,6 +589,11 @@ img {
       border-radius: 5px;
     }
 
+    .basket-scroll-section::-webkit-scrollbar-thumb {
+      background-color: #551C50;
+      border-radius: 5px;
+    }
+    
     .delivery-date-info-block {
       display: flex;
       justify-content: center;
