@@ -53,7 +53,9 @@ export default function ProductSelectionPageKB({ productsList }) {
             </KitReceipt>
           </div>
         </div>
-        <ButtonsHolder handleTransfer={handleTransfer} className="buttons-holder-h"/>
+        <div className="buttons-holder-h">
+        <ButtonsHolder handleTransfer={handleTransfer}/>
+        </div>
       </main>
     </>
   );

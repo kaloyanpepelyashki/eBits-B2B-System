@@ -20,7 +20,7 @@ export default function KitReceipt(props) {
 
   return (
     <>
-      <div className="separate-product-receipt-wrapper block px-4 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl ">
+      <div className="separate-product-receipt-wrapper block px-4 py-6 mt-14 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl ">
         <h1 className="text-total text-TextMid text-primary-color">Kit</h1>
 
         <div className="flex justify-center items-center">

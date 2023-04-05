@@ -10,7 +10,7 @@ export default function PageLeftTopSection(props) {
   return (
     <>
       <div className="page-left-side-top-section">
-        <h1 className="text-TextXL text-primary-color">Kit</h1>
+        <h1 className="text-TextXL text-primary-color ml-5">Kit</h1>
         {props.children}
       </div>
       <div className="line"></div>

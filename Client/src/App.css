@@ -185,6 +185,19 @@ img {
           padding: 5px;
           z-index: 1;
         }
+
+        .product-search-bar-h {
+          display: flex;
+          align-items: center;
+          position: relative;
+          left: 0;
+          width: 100%;
+          background-color: rgb(255, 255, 255);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 5px;
+          z-index: 1;
+          margin-bottom: 10;
+        }
         
         .product-search-bar-outter-wrapper {
           height: 40px;
@@ -224,9 +237,20 @@ img {
         background-color: rgb(233, 233, 233); 
       }
 
+        /* Add a new class to style the search results container */
+        .product-search-results {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: #ffffff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          z-index: 9999;
+        }
+
       .product-search-bar-product-title {
       }
-      
+    
 
           /* <--- --- |SEPARATE PRODUCTS RECEIPT COMPONENT STYLING | --- ---> */
       .separate-product-receipt-wrapper {
@@ -598,6 +622,15 @@ img {
     }
 
     .basket-scroll-section{
+      width: 100%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .basket-scroll-section-h{
       width: 100%;
       height: 70%;
       display: flex;

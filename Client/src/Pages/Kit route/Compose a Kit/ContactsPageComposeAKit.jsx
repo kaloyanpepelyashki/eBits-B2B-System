@@ -27,7 +27,9 @@ export default function ContactsPageKC() {
             <SeparateProductsReceipt title={"Kit"} />
           </div>
         </div>
-        <ButtonsHolder handleTransfer={handleTransfer} />
+        <div className="buttons-holder-h">
+        <ButtonsHolder handleTransfer={handleTransfer} />  
+        </div>
       </main>
     </>
   );
