@@ -54,7 +54,9 @@ export default function ProductSelectionPageSP({ productsList }) {
             <SeparateProductsReceipt title={"Total"} />
           </div>
         </div>
-        <ButtonsHolder handleTransfer={handleTransfer} className="buttons-holder-h"/>
+        <div className="buttons-holder-h">
+        <ButtonsHolder handleTransfer={handleTransfer}/>
+        </div>
       </main>
     </>
   );

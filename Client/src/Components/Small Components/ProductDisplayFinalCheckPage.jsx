@@ -11,16 +11,18 @@ export default function ProductDisplayFinalCheckPage(props) {
   } = props;
 
   return (
-    <>
-      <tr className="final-check-product-table-row final-check-product-table-row-item">
-        <td className="final-check-product-table-I-tag-field">
+   <> 
+   <tr className="final-check-product-table-row-item">
+      <td className="final-check-product-table-I-tag-field">
           <Icon path={mdiAlphaICircleOutline} size={1} />
         </td>
+        <tr className="final-check-product-table-row">
         <td className="final-check-product-table-name-field text-ProductTitleSmall">
           {product.VariationName
             ? product.ProductName + " " + product.VariationName
             : product.ProductName}
         </td>
+        </tr>
         <td className="final-check-product-table-total-field text-ProductTitleMedium">
           {product.Price} dkk
         </td>
@@ -59,3 +61,4 @@ export default function ProductDisplayFinalCheckPage(props) {
     </>
   );
 }
+

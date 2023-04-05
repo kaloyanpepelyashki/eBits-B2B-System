@@ -301,14 +301,14 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
   return (
   
       <div
-        className="product-search-bar-outter-wrapper px-8 py-5 bg-white border-white border-slate-300 border-round text-sm shadow-sm
+        className="product-search-bar-outter-wrapper product-search-bar px-8 py-5 bg-white border-white border-slate-300 border-round text-sm shadow-sm
             focus:outline-none"
       >
         <select
           onChange={(e) => {
             handleVariationChoice(e);
           }}
-          className="product-search-bar-select text-VariationTitle bg-selector-color text-txt-white-color round-sm border-round"
+          className="product-search-bar-select product-search-bar text-VariationTitle bg-selector-color text-txt-white-color round-sm border-round"
         >
           <option>select a variation</option>
           {variationAndPrice.length !== 0 ? (
@@ -335,7 +335,7 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
           )}
         </select>
          
-        <div className="flex items-center space-x-5 ml-10 mr-10">
+        <div className="flex product-search-bar items-center space-x-5 ml-10 mr-10">
        <img 
          className="w-10 h-10 object-contain"
             src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}
@@ -343,7 +343,7 @@ export default React.memo(function ProductSearchBar({ product, addProduct }) {
          />
 
         <div
-          className="product-search-bar-clickable rounded-2xl"
+          className="product-search-bar-clickable product-search-bar rounded-2xl"
           onClick={() => {
             handleChoiceValidation();
           }}

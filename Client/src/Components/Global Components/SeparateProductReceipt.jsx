@@ -20,7 +20,7 @@ export default function SeparateProductsReceipt(props) {
   return (
     <>
       <div
-        className="separate-product-receipt-wrapper block px-4 py-6 pb-56 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
+        className="separate-product-receipt-wrapper block px-4 py-8 pb-56 mt-14 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
             focus:outline-none "
       >
         <h1 className="text-total text-TextMid text-primary-color mr-5">

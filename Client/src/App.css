@@ -76,24 +76,22 @@ img {
 
   /* <--- --- | HEADER-BAR COMPONENT STYLING | --- ---> */
 
-  .buttons-holder{
-    width: 100%;
-    position: fixed;
+  .buttons-holder {
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 20px;
     background-color: transparent;
   }
-
+  
   .buttons-holder-h {
+    position: relative;
+    margin-top: 10px;
     width: 100%;
-    position: sticky;
-    bottom: 0;
-    margin-top: 20px;
-    z-index: 1;
+    margin-top: 80px;
   }
-
+  
   .buttons-holder-inner {
     display: flex;
     flex-direction: row;
@@ -101,6 +99,7 @@ img {
     align-items: center;
     padding: 0px 25px;
   }
+
   .btn-holder-next {
     color: rgb(228, 228, 228);
     width: 178px;
@@ -175,33 +174,56 @@ img {
     }
         /* <--- --- | SEARCH BAR PRODUCT DISPLAY COMPONENT STYLING | --- ---> */
 
-      .product-search-bar-outter-wrapper {
-        height: 40px;
-        width: 570px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-        padding: 5px 0px 0px 10px;
-      }
+        .product-search-bar {
+          display: flex;
+          align-items: center;
+          position: relative;
+          left: 0;
+          width: 100%;
+          background-color: rgb(255, 255, 255);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 5px;
+          z-index: 1;
+        }
+        
+        .product-search-bar-outter-wrapper {
+          height: 40px;
+          width: 570px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          margin-bottom: 10px;
+          padding: 5px 0px 0px 10px;
+          overflow: hidden;
+          position: absolute;
+          z-index: 1;
+          top: 100px;
+          left: 0;
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        
       .product-search-bar-outter-wrapper:hover {
         background-color: #ffffff;
         border-radius: round;
       }
 
       .product-search-bar-select {
-        width: 125px;
+        width: 100px;
         height: 30px;
         cursor: pointer;
-        margin-left: -15px;
+        margin-left: 15px;
         border-radius: round;
-      }
+        overflow: hidden;
+      }   
       
       .product-search-bar-clickable:hover {
         cursor: pointer;
         background-color: rgb(233, 233, 233); 
       }
+
       .product-search-bar-product-title {
       }
       
@@ -215,7 +237,9 @@ img {
         align-items: center;
         margin: 20px 50px 0px 10px;
         text-align: center;
+
       }
+
       .product-receipt-products-display-section {
         width: 350px;
         height: 80%;
@@ -477,7 +501,7 @@ img {
       height: 54px;
       display: flex;
       align-items: center;
-      padding: 7px 2px;
+      padding: 5px;
       border-bottom: 1.3px solid #B5B5B4;
     }
     .final-check-product-table-I-tag-field {
@@ -522,10 +546,12 @@ img {
     
            /* <--- --- | FINAL CHECK ITEM DISPLAY COMPONENT STYLING | --- ---> */      
     .final-check-product-table-amount-btn {
-      width: 23px;
-      height: 21px;
+      width: 45px;
+      height: 25px;
       border: 1px solid black;
       align-content: center;
+      margin-right: 19px;
+      margin-left: 19px;
     }
     .final-check-product-table-price {
       width: 32px;
@@ -563,7 +589,7 @@ img {
 
     .scroll-section{
       width: 100%;
-      height: 40%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
@@ -572,7 +598,7 @@ img {
 
     .basket-scroll-section{
       width: 100%;
-      height: 20%;
+      height: 70%;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;

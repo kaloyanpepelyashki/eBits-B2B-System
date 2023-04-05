@@ -82,7 +82,9 @@ export default function FinalCheckPage(props) {
             )}
           </div>
         </div>
-        <ButtonsHolder />
+        <div className="buttons-holder-h">
+        <ButtonsHolder/>
+        </div>
       </main>
     </>
   );
