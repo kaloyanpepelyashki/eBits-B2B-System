@@ -1,6 +1,6 @@
-//Importing Material design and material design components
-import Icon from "@mdi/react";
-import { mdiTrashCanOutline, mdiAlphaICircleOutline } from "@mdi/js";
+//Importing Font Awesome and Font Awesome components
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductDisplayFinalCheckPage(props) {
   const {
@@ -11,17 +11,20 @@ export default function ProductDisplayFinalCheckPage(props) {
   } = props;
 
   return (
-   <> 
-   <tr className="final-check-product-table-row-item">
-      <td className="final-check-product-table-I-tag-field">
-          <Icon path={mdiAlphaICircleOutline} size={1} />
+    <>
+      <tr className="final-check-product-table-row-item">
+        <td className="final-check-product-table-I-tag-field">
+          <FontAwesomeIcon
+            className="final-check-product-I-icon final-check-product-icon text-textSmall"
+            icon={faCircleInfo}
+          />
         </td>
         <tr className="final-check-product-table-row">
-        <td className="final-check-product-table-name-field text-ProductTitleSmall">
-          {product.VariationName
-            ? product.ProductName + " " + product.VariationName
-            : product.ProductName}
-        </td>
+          <td className="final-check-product-table-name-field text-ProductTitleSmall">
+            {product.VariationName
+              ? product.ProductName + " " + product.VariationName
+              : product.ProductName}
+          </td>
         </tr>
         <td className="final-check-product-table-total-field text-ProductTitleMedium">
           {product.Price} dkk
@@ -48,10 +51,9 @@ export default function ProductDisplayFinalCheckPage(props) {
           </button>
         </td>
         <td className="final-check-product-table-delete-field">
-          <Icon
-            className="trash-icon"
-            path={mdiTrashCanOutline}
-            size={1}
+          <FontAwesomeIcon
+            icon={faTrash}
+            className="trash-icon final-check-product-icon"
             onClick={() => {
               handleRemoveProduct(product);
             }}
@@ -61,4 +63,3 @@ export default function ProductDisplayFinalCheckPage(props) {
     </>
   );
 }
-

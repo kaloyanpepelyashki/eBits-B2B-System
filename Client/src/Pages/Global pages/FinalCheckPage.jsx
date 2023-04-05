@@ -2,7 +2,7 @@
 import { useContext } from "react";
 
 //Importing React-router elements and components
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 import { ShoppingCartFunc } from "../../Components/Context Components/ShoppingCartFuncContext";
 import { ContactsInformationFunc } from "../../Components/Context Components/ContactsInformationContext";
@@ -21,6 +21,7 @@ import ProcessMicroCopy from "../../Components/Global Components/MicroCopy";
 
 export default function FinalCheckPage(props) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { productList } = props;
 
@@ -47,8 +48,9 @@ export default function FinalCheckPage(props) {
   //       console.log(err);
   //     });
   // };
-
-  console.log(location.state.contactsPageType);
+  const handleTransfer = () => {
+    navigate("/thankYou");
+  };
   return (
     <>
       <main className="final-check-page-content-wrapper page-main-section">
@@ -83,7 +85,11 @@ export default function FinalCheckPage(props) {
           </div>
         </div>
         <div className="buttons-holder-h">
-        <ButtonsHolder/>
+          <ButtonsHolder
+            back={"Yes"}
+            title={"Next"}
+            handleTransfer={handleTransfer}
+          />
         </div>
       </main>
     </>

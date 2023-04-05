@@ -28,6 +28,7 @@ import ProductSelectionPageKC from "./Pages/Kit route/Compose a Kit/ProductSelec
 import ProductSelectionPageSP from "./Pages/Seprate Products Route/ProductSelctionPage(SP)";
 import FinalCheckPage from "./Pages/Global pages/FinalCheckPage";
 import ContactsPageKC from "./Pages/Kit route/Compose a Kit/ContactsPageComposeAKit";
+import OutroPage from "./Pages/Global pages/OutroPage";
 
 function App() {
   //Fetching data from the server
@@ -69,6 +70,7 @@ function App() {
                 path="/finalChackPage"
                 element={<FinalCheckPage productList={productsList} />}
               />
+              <Route path="/thankYou" element={<OutroPage />} />
               {/* <==== ! | Separate products routes | ! ====>  */}
               <Route
                 path="/productSelectionPageSP"

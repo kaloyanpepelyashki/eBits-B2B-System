@@ -588,12 +588,28 @@ img {
       cursor: pointer;
     }
 
+
+
+
+      /***  <==== === ! | OUTRO PAGE | ! === ====>  ***/
+    .outro-page-content-wrapper {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .outro-page-outro-header {
+      margin-bottom: -10px;
+    }
     
 
 
 
 
-     /***  <==== === ! | DELETE LATER? | ! === ====>  ***/
+     /***  <==== === ! | DELETE LATER | ! === ====>  ***/
     .receipt-holder {
       display: flex;
       flex-direction: column;
@@ -680,6 +696,10 @@ img {
     }
 
     
+
+    .type-of-order-box-icon {
+      font-size: 25pt;
+    }
     
 
 

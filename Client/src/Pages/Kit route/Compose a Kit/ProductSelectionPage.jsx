@@ -40,9 +40,13 @@ export default function ProductSelectionPageKC(props) {
             </PageLeftSide>
             <SeparateProductsReceipt title={"Kit"} />
           </div>
-          </div>
-          <div className="buttons-holder-h">
-        <ButtonsHolder handleTransfer={handleTransfer}/>
+        </div>
+        <div className="buttons-holder-h">
+          <ButtonsHolder
+            back={"Yes"}
+            title={"Next"}
+            handleTransfer={handleTransfer}
+          />
         </div>
       </main>
     </>

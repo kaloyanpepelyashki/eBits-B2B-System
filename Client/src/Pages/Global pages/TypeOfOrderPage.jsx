@@ -1,9 +1,9 @@
 //Importing React hooks
 import { useState } from "react";
 
-//Importing Material design and material design components
-import Icon from "@mdi/react";
-import { mdiPackageVariantClosed, mdiPackageVariantClosedPlus } from "@mdi/js";
+//Importing Font Awesome and Font Awesome components
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBoxesStacked, faBox } from "@fortawesome/free-solid-svg-icons";
 
 //Importing React-router elements, components and hooks
 import { useNavigate } from "react-router";
@@ -47,10 +47,14 @@ export default function TypeOfOrderPage() {
               />
               <p className="TypeOfOrder-page-choice-text font-semibold text-HeadingSmall">
                 A kit
-                <Icon
+                {/* <Icon
                   className="inline-block ml-5 mt-4"
                   path={mdiPackageVariantClosed}
                   size={2}
+                /> */}
+                <FontAwesomeIcon
+                  icon={faBox}
+                  className="type-of-order-box-icon inline-block ml-5 mt-4"
                 />
               </p>
             </div>
@@ -66,16 +70,26 @@ export default function TypeOfOrderPage() {
               />
               <p className="TypeOfOrder-page-choice-text font-bold text-HeadingSmall">
                 Separate products
-                <Icon
+                {/* <Icon
                   className="inline-block ml-4 mt-5"
                   path={mdiPackageVariantClosedPlus}
                   size={2}
+                /> */}
+                <FontAwesomeIcon
+                  icon={faBoxesStacked}
+                  size="sm"
+                  className="type-of-order-box-icon inline-block ml-4 mt-5"
                 />
               </p>
             </div>
           </div>
         </div>
-        <ButtonsHolder handleTransfer={handleTransfer} className="button-holder" />
+        <ButtonsHolder
+          back={"Yes"}
+          title={"Next"}
+          handleTransfer={handleTransfer}
+          className="button-holder"
+        />
       </main>
     </>
   );

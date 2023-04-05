@@ -28,7 +28,11 @@ export default function ContactsPageKC() {
           </div>
         </div>
         <div className="buttons-holder-h">
-        <ButtonsHolder handleTransfer={handleTransfer} />  
+          <ButtonsHolder
+            back={"Yes"}
+            title={"Next"}
+            handleTransfer={handleTransfer}
+          />
         </div>
       </main>
     </>

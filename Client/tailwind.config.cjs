@@ -14,7 +14,9 @@ module.exports = {
       "selector-color": "#FBB124",
     },
     fontSize: {
+      TextXXL: "37pt",
       TextXL: "34pt",
+      TextLarge: "28pt",
       TextBig: "25pt",
       TextMid: "20pt",
       TextSmall: "14pt",

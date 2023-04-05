@@ -1,11 +1,9 @@
 //Importin React hooks
 import { useContext, useState } from "react";
 
-//Importing React Material design and material design components
-import Icon from "@mdi/react";
-import { mdiMagnify } from "@mdi/js";
-import { color } from "@mui/system";
-import { purple } from "@mui/material/colors";
+//Importing Font Awesome and Font Awesome components
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
 
@@ -70,10 +68,9 @@ export default function PageLeftSide(props) {
             placeholder="Product name here..."
             onChange={(e) => setSearchQuerry(e.target.value)}
           />
-          <Icon
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
             className="icon absolute -mt-10 py-0"
-            path={mdiMagnify}
-            size={1}
           />
 
           {Array.isArray(filterFunc) && searchQuerry !== ""
@@ -93,21 +90,21 @@ export default function PageLeftSide(props) {
           Your products :
         </h2>
         <div className="basket-scroll-section">
-        <div className="page-left-side-bottom-section">
-          {cartProducts.map((product) =>
-            product.qty > 0 && product.varQty > 0 ? (
-              <BasketProductsDisplay
-                key={product.productBaksetUnqKey}
-                product={product}
-                handleIncreaseProductAmount={handleIncreaseProductAmount}
-                handleReduceProductAmount={handleReduceProductAmount}
-                handleRemoveProduct={handleRemoveProduct}
-              />
-            ) : (
-              ""
-            )
-          )}
-         </div>
+          <div className="page-left-side-bottom-section">
+            {cartProducts.map((product) =>
+              product.qty > 0 && product.varQty > 0 ? (
+                <BasketProductsDisplay
+                  key={product.productBaksetUnqKey}
+                  product={product}
+                  handleIncreaseProductAmount={handleIncreaseProductAmount}
+                  handleReduceProductAmount={handleReduceProductAmount}
+                  handleRemoveProduct={handleRemoveProduct}
+                />
+              ) : (
+                ""
+              )
+            )}
+          </div>
         </div>
       </div>
     </>

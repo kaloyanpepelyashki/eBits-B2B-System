@@ -55,7 +55,11 @@ export default function ChoiceBuyOrCreate() {
             </div>
           </div>
         </div>
-        <ButtonsHolder handleTransfer={handleTransfer} />
+        <ButtonsHolder
+          back={"Yes"}
+          title={"Next"}
+          handleTransfer={handleTransfer}
+        />
       </main>
     </>
   );

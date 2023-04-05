@@ -1,9 +1,9 @@
 //Importin React hooks
 import { useState } from "react";
 
-//Importing Material design and material design components
-import Icon from "@mdi/react";
-import { mdiMagnify } from "@mdi/js";
+//Importing Font Awesome and Font Awesome components
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 //Importing Components
 import ProductDisplaySearchBar from "../Context Components/ProductDisplaySearchBar";
@@ -37,10 +37,9 @@ export default function PopUpMessage(props) {
               placeholder="Product name here..."
               onChange={(e) => setSearchQuerry(e.target.value)}
             />
-            <Icon
-              className="absolute ml-72 -mt-10 py-0"
-              path={mdiMagnify}
-              size={1}
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="icon absolute ml-72 -mt-10 py-0"
             />
             {Array.isArray(filterFunc) && searchQuerry !== ""
               ? filterFunc

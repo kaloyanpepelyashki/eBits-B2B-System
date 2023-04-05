@@ -1,9 +1,9 @@
 //Importin React hooks
 import { useContext, useState } from "react";
 
-//Importing Material design and material design components
-import Icon from "@mdi/react";
-import { mdiPlus, mdiClose } from "@mdi/js";
+//Importing Font Awesome and Font Awesome components
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { ShoppingCartFunc } from "../Context Components/ShoppingCartFuncContext";
 
@@ -44,12 +44,12 @@ export default function PageLeftSideFinalCheckPage(props) {
         toggleUp={toggleUp}
         setToggleUp={setToggleUp}
       >
-        <Icon
+        <FontAwesomeIcon
+          className="text-TextMid"
+          icon={faXmark}
           onClick={() => {
             setToggleUp(false);
           }}
-          path={mdiClose}
-          size={1.5}
         />
       </PopUpMessage>
       <div
@@ -63,12 +63,12 @@ export default function PageLeftSideFinalCheckPage(props) {
             </p>
 
             <div className="page-left-side-contacts-add-more-holder text-primary-color">
-              <Icon
+              <FontAwesomeIcon
+                icon={faPlus}
+                className="text-TextMid"
                 onClick={() => {
                   setToggleUp(true);
                 }}
-                path={mdiPlus}
-                size={1}
               />
               <p className="text-primary-color text-ProductTitleSmall font-bold">
                 Add more
