@@ -26,10 +26,10 @@ export default function PopUpMessage(props) {
 
   return toggleUp ? (
     <>
-      <div className="final-check-page-pop-up-wrapper bg-white shadow-xl">
+      <div className="final-check-page-pop-up-wrapper mb-32 bg-white shadow-xl">
         <div className="final-check-pop-up-inner-content">
           <div className="final-check-pop-up-top-section">{props.children}</div>
-          <div className="final-check-pop-up-main-section">
+          <div className="final-check-pop-up-main-section mb-32">
             <input
               className="page-left-side-search-bar block px-4 py-2 pr-24 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
             focus:outline-none"

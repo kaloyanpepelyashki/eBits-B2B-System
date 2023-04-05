@@ -528,8 +528,8 @@ img {
         /* <--- --- | PAGE LEFT SIDE POP-UP MESSAGE COMPONENT STYLING | --- ---> */ 
         
     .final-check-page-pop-up-wrapper {
-      width: 700px;
-      height: 320px;
+      width: 600px;
+      height: 200px;
       position: absolute;
       top: 34%;
       left: 30%;
@@ -542,6 +542,7 @@ img {
       width: 100%;
       display: flex;
       justify-content: flex-end;
+      
     }
     
            /* <--- --- | FINAL CHECK ITEM DISPLAY COMPONENT STYLING | --- ---> */      
